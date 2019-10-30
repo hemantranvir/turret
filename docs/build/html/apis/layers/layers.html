@@ -1,0 +1,2350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.layers.average_pooling_2d &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.int8.int8_calibrator" href="../int8/int8.html" />
+    <link rel="prev" title="turret.type_check" href="../core/type_check.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#layers">Layers</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.layers.average_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.basic_math">turret.layers.basic_math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.batch_normalization">turret.layers.batch_normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.bias">turret.layers.bias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.builtin">turret.layers.builtin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.leaky_relu">turret.layers.leaky_relu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.lstm">turret.layers.lstm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.lstm_v2">turret.layers.lstm_v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.max_average_blend_pooling_2d">turret.layers.max_average_blend_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.max_pooling_2d">turret.layers.max_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.pad">turret.layers.pad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.relu">turret.layers.relu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.repeat">turret.layers.repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.reshape">turret.layers.reshape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.rnn">turret.layers.rnn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.rnn_v2">turret.layers.rnn_v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.shuffle">turret.layers.shuffle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.sigmoid">turret.layers.sigmoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.split">turret.layers.split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.tanh">turret.layers.tanh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.layers.average_pooling_2d</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/layers/layers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.layers.average_pooling_2d">
+<span id="turret-layers-average-pooling-2d"></span><h1>turret.layers.average_pooling_2d<a class="headerlink" href="#module-turret.layers.average_pooling_2d" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.average_pooling_2d.average_pooling_2d">
+<code class="sig-prename descclassname">turret.layers.average_pooling_2d.</code><code class="sig-name descname">average_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.average_pooling_2d.average_pooling_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for average 2D pooling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by pooling.</p></li>
+<li><p><strong>window_size</strong> (<em>tupple</em>) – Window size for pooling.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride for pooling.</p></li>
+<li><p><strong>padding</strong> – Padding for pooling.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by pooling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.basic_math">
+<span id="turret-layers-basic-math"></span><h1>turret.layers.basic_math<a class="headerlink" href="#module-turret.layers.basic_math" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.basic_math.abs">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">abs</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the absolute value of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The absolute value of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.div">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">div</code><span class="sig-paren">(</span><em class="sig-param">input0</em>, <em class="sig-param">input1</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.div" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the quotient of two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input0</strong> (<em>turret.Tensor</em>) – The first input tensor.</p></li>
+<li><p><strong>input1</strong> (<em>turret.Tensor</em>) – The second input tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The quotient of two elements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.exp">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">exp</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the exponent of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The exponent of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.log">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the log(base e) of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The log of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.max">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">max</code><span class="sig-paren">(</span><em class="sig-param">*xs</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum of elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xs</strong> (<em>tuple</em>) – Tuple of tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Maximum tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.min">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">min</code><span class="sig-paren">(</span><em class="sig-param">*xs</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the minimum of elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xs</strong> (<em>tuple</em>) – Tuple of tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Minimum tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.neg">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">neg</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the negation of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The negation of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.pow">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">pow</code><span class="sig-paren">(</span><em class="sig-param">input0</em>, <em class="sig-param">input1</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the power of two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input0</strong> (<em>turret.Tensor</em>) – The first input tensor.</p></li>
+<li><p><strong>input1</strong> (<em>turret.Tensor</em>) – The second input tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The power of two elements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.prod">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">prod</code><span class="sig-paren">(</span><em class="sig-param">*xs</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the product of elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xs</strong> (<em>tuple</em>) – Tuple of tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Producted tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.recip">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">recip</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.recip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reciprocal of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The reciprocal of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.sqrt">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">sqrt</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.sqrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the square root of element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – The input tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The square root of element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.sub">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">sub</code><span class="sig-paren">(</span><em class="sig-param">input0</em>, <em class="sig-param">input1</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.sub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the difference of two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input0</strong> (<em>turret.Tensor</em>) – The first input tensor.</p></li>
+<li><p><strong>input1</strong> (<em>turret.Tensor</em>) – The second input tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The difference of two elements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.basic_math.sum">
+<code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">sum</code><span class="sig-paren">(</span><em class="sig-param">*xs</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sum of elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xs</strong> (<em>tuple</em>) – Tuple of tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Summed tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.batch_normalization">
+<span id="turret-layers-batch-normalization"></span><h1>turret.layers.batch_normalization<a class="headerlink" href="#module-turret.layers.batch_normalization" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.batch_normalization.batch_normalization">
+<code class="sig-prename descclassname">turret.layers.batch_normalization.</code><code class="sig-name descname">batch_normalization</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">mean</em>, <em class="sig-param">variance</em>, <em class="sig-param">gamma=None</em>, <em class="sig-param">beta=None</em>, <em class="sig-param">eps=2e-05</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.batch_normalization.batch_normalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for batch normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by batch
+normalization.</p></li>
+<li><p><strong>mean</strong> (<em>turret.Tensor</em>) – The initial mean value.</p></li>
+<li><p><strong>variance</strong> (<em>turret.Tensor</em>) – The initial variance value.</p></li>
+<li><p><strong>gamma</strong> (<em>turret.Tensor</em>) – The initial gamma value.</p></li>
+<li><p><strong>beta</strong> (<em>turret.Tensor</em>) – The initial beta value.</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – Small float added to variance to avoid dividing
+by zero.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by batch normalization.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.bias">
+<span id="turret-layers-bias"></span><h1>turret.layers.bias<a class="headerlink" href="#module-turret.layers.bias" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.bias.bias">
+<code class="sig-prename descclassname">turret.layers.bias.</code><code class="sig-name descname">bias</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.bias.bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer to bias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be biased.</p></li>
+<li><p><strong>b</strong> (<em>np.ndarray</em>) – Bias.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Biased tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.builtin">
+<span id="turret-layers-builtin"></span><h1>turret.layers.builtin<a class="headerlink" href="#module-turret.layers.builtin" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.layers.builtin.ActivationType">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ActivationType</code><a class="headerlink" href="#turret.layers.builtin.ActivationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>enumerates the types of activation to perform in an activation
+layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.ActivationType.RELU">
+<code class="sig-name descname">RELU</code><a class="headerlink" href="#turret.layers.builtin.ActivationType.RELU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rectified linear activation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ActivationType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ActivationType.SIGMOID">
+<code class="sig-name descname">SIGMOID</code><a class="headerlink" href="#turret.layers.builtin.ActivationType.SIGMOID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sigmoid activation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ActivationType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ActivationType.TANH">
+<code class="sig-name descname">TANH</code><a class="headerlink" href="#turret.layers.builtin.ActivationType.TANH" title="Permalink to this definition">¶</a></dt>
+<dd><p>TanH activation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ActivationType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">RELU</code><em class="property"> = &lt;ActivationType.RELU: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SIGMOID</code><em class="property"> = &lt;ActivationType.SIGMOID: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">TANH</code><em class="property"> = &lt;ActivationType.TANH: 2&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.ElementWiseOperation">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ElementWiseOperation</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the binary operations that may be performed by an
+elementwise layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.SUM">
+<code class="sig-name descname">SUM</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.SUM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.PROD">
+<code class="sig-name descname">PROD</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.PROD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product of the two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.MAX">
+<code class="sig-name descname">MAX</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.MAX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum of the two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.MIN">
+<code class="sig-name descname">MIN</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.MIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum of the two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.SUB">
+<code class="sig-name descname">SUB</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.SUB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Substract the second element from
+the first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.DIV">
+<code class="sig-name descname">DIV</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.DIV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide the first element by the
+second.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ElementWiseOperation.POW">
+<code class="sig-name descname">POW</code><a class="headerlink" href="#turret.layers.builtin.ElementWiseOperation.POW" title="Permalink to this definition">¶</a></dt>
+<dd><p>The first element to the power of
+the second element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ElementWiseOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">DIV</code><em class="property"> = &lt;ElementWiseOperation.DIV: 5&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MAX</code><em class="property"> = &lt;ElementWiseOperation.MAX: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MIN</code><em class="property"> = &lt;ElementWiseOperation.MIN: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">POW</code><em class="property"> = &lt;ElementWiseOperation.POW: 6&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">PROD</code><em class="property"> = &lt;ElementWiseOperation.PROD: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SUB</code><em class="property"> = &lt;ElementWiseOperation.SUB: 4&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SUM</code><em class="property"> = &lt;ElementWiseOperation.SUM: 0&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.PoolingType">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">PoolingType</code><a class="headerlink" href="#turret.layers.builtin.PoolingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Type of pooling to perform in a pooling layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.PoolingType.MAX">
+<code class="sig-name descname">MAX</code><a class="headerlink" href="#turret.layers.builtin.PoolingType.MAX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum over elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.PoolingType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.PoolingType.AVERAGE">
+<code class="sig-name descname">AVERAGE</code><a class="headerlink" href="#turret.layers.builtin.PoolingType.AVERAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average over elements. If the tensor is
+padded, the count includes the padding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.PoolingType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.PoolingType.MAX_AVERAGE_BLEND">
+<code class="sig-name descname">MAX_AVERAGE_BLEND</code><a class="headerlink" href="#turret.layers.builtin.PoolingType.MAX_AVERAGE_BLEND" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blending between the max
+pooling and average pooling:
+(1-blendFactor)*maxPool + blendFactor*avgPool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.PoolingType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">AVERAGE</code><em class="property"> = &lt;PoolingType.AVERAGE: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MAX</code><em class="property"> = &lt;PoolingType.MAX: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MAX_AVERAGE_BLEND</code><em class="property"> = &lt;PoolingType.MAX_AVERAGE_BLEND: 2&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.RNNDirection">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">RNNDirection</code><a class="headerlink" href="#turret.layers.builtin.RNNDirection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the RNN directions.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNDirection.UNIDIRECTION">
+<code class="sig-name descname">UNIDIRECTION</code><a class="headerlink" href="#turret.layers.builtin.RNNDirection.UNIDIRECTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network iterations from first input
+to last input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNDirection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNDirection.BIDIRECTION">
+<code class="sig-name descname">BIDIRECTION</code><a class="headerlink" href="#turret.layers.builtin.RNNDirection.BIDIRECTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network iterates from first to last
+and vice versa and outputs concatenated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNDirection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">BIDIRECTION</code><em class="property"> = &lt;RNNDirection.BIDIRECTION: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">UNIDIRECTION</code><em class="property"> = &lt;RNNDirection.UNIDIRECTION: 0&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.RNNGateType">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">RNNGateType</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Identifies an individual gate within an RNN cell.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.INPUT">
+<code class="sig-name descname">INPUT</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.INPUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input gate (i).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.OUTPUT">
+<code class="sig-name descname">OUTPUT</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.OUTPUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output gate (o).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.FORGET">
+<code class="sig-name descname">FORGET</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.FORGET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forget gate (f).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.UPDATE">
+<code class="sig-name descname">UPDATE</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.UPDATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update gate (u).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.RESET">
+<code class="sig-name descname">RESET</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.RESET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset gate (r).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.CELL">
+<code class="sig-name descname">CELL</code><a class="headerlink" href="#turret.layers.builtin.RNNGateType.CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cell gate (c).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INPUT</code></dt>
+<dd><p>Hidden gate (h).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNGateType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">CELL</code><em class="property"> = &lt;RNNGateType.CELL: 5&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">FORGET</code><em class="property"> = &lt;RNNGateType.FORGET: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNGateType.HIDDEN">
+<code class="sig-name descname">HIDDEN</code><em class="property"> = &lt;RNNGateType.HIDDEN: 6&gt;</em><a class="headerlink" href="#turret.layers.builtin.RNNGateType.HIDDEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INPUT</code><em class="property"> = &lt;RNNGateType.INPUT: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">OUTPUT</code><em class="property"> = &lt;RNNGateType.OUTPUT: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">RESET</code><em class="property"> = &lt;RNNGateType.RESET: 4&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">UPDATE</code><em class="property"> = &lt;RNNGateType.UPDATE: 3&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.RNNInputMode">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">RNNInputMode</code><a class="headerlink" href="#turret.layers.builtin.RNNInputMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the RNN input modes.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNInputMode.LINEAR">
+<code class="sig-name descname">LINEAR</code><a class="headerlink" href="#turret.layers.builtin.RNNInputMode.LINEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the normal matrix multiplication
+in the first recurrent layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNInputMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNInputMode.SKIP">
+<code class="sig-name descname">SKIP</code><a class="headerlink" href="#turret.layers.builtin.RNNInputMode.SKIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>No operation is performed on the first
+recurrent layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNInputMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">LINEAR</code><em class="property"> = &lt;RNNInputMode.LINEAR: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SKIP</code><em class="property"> = &lt;RNNInputMode.SKIP: 1&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.RNNOperation">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">RNNOperation</code><a class="headerlink" href="#turret.layers.builtin.RNNOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the RNN operations.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNOperation.RELU">
+<code class="sig-name descname">RELU</code><a class="headerlink" href="#turret.layers.builtin.RNNOperation.RELU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single gate RNN with ReLU activation
+function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNOperation.TANH">
+<code class="sig-name descname">TANH</code><a class="headerlink" href="#turret.layers.builtin.RNNOperation.TANH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single gate RNN with TANH activation
+function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNOperation.LSTM">
+<code class="sig-name descname">LSTM</code><a class="headerlink" href="#turret.layers.builtin.RNNOperation.LSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Four-gate LSTM network without peephole
+connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.RNNOperation.GRU">
+<code class="sig-name descname">GRU</code><a class="headerlink" href="#turret.layers.builtin.RNNOperation.GRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Three-gate network consisting of Gated
+Recurrent Units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.RNNOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">GRU</code><em class="property"> = &lt;RNNOperation.GRU: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">LSTM</code><em class="property"> = &lt;RNNOperation.LSTM: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">RELU</code><em class="property"> = &lt;RNNOperation.RELU: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">TANH</code><em class="property"> = &lt;RNNOperation.TANH: 1&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.ReduceOperation">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ReduceOperation</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the reduce operations that may be performed by an
+reduce layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.ReduceOperation.SUM">
+<code class="sig-name descname">SUM</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation.SUM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ReduceOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ReduceOperation.PROD">
+<code class="sig-name descname">PROD</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation.PROD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ReduceOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ReduceOperation.MAX">
+<code class="sig-name descname">MAX</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation.MAX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ReduceOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ReduceOperation.MIN">
+<code class="sig-name descname">MIN</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation.MIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ReduceOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ReduceOperation.AVG">
+<code class="sig-name descname">AVG</code><a class="headerlink" href="#turret.layers.builtin.ReduceOperation.AVG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ReduceOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">AVG</code><em class="property"> = &lt;ReduceOperation.AVG: 4&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MAX</code><em class="property"> = &lt;ReduceOperation.MAX: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MIN</code><em class="property"> = &lt;ReduceOperation.MIN: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">PROD</code><em class="property"> = &lt;ReduceOperation.PROD: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SUM</code><em class="property"> = &lt;ReduceOperation.SUM: 0&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.ScaleMode">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ScaleMode</code><a class="headerlink" href="#turret.layers.builtin.ScaleMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Controls how scale is applied in a Scale layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.ScaleMode.UNIFORM">
+<code class="sig-name descname">UNIFORM</code><a class="headerlink" href="#turret.layers.builtin.ScaleMode.UNIFORM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identical coefficients across all elements
+of the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ScaleMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ScaleMode.CHANNEL">
+<code class="sig-name descname">CHANNEL</code><a class="headerlink" href="#turret.layers.builtin.ScaleMode.CHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Per-channel coefficients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ScaleMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.ScaleMode.ELEMENTWISE">
+<code class="sig-name descname">ELEMENTWISE</code><a class="headerlink" href="#turret.layers.builtin.ScaleMode.ELEMENTWISE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elementwise coefficients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.ScaleMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">CHANNEL</code><em class="property"> = &lt;ScaleMode.CHANNEL: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">ELEMENTWISE</code><em class="property"> = &lt;ScaleMode.ELEMENTWISE: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">UNIFORM</code><em class="property"> = &lt;ScaleMode.UNIFORM: 0&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.TopKOperation">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">TopKOperation</code><a class="headerlink" href="#turret.layers.builtin.TopKOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the operations that may be performed by a TopK layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.TopKOperation.MAX">
+<code class="sig-name descname">MAX</code><a class="headerlink" href="#turret.layers.builtin.TopKOperation.MAX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.TopKOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.TopKOperation.MIN">
+<code class="sig-name descname">MIN</code><a class="headerlink" href="#turret.layers.builtin.TopKOperation.MIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum of the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.TopKOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MAX</code><em class="property"> = &lt;TopKOperation.MAX: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">MIN</code><em class="property"> = &lt;TopKOperation.MIN: 1&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.builtin.UnaryOperation">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">UnaryOperation</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Enumerates the unary operations that may be performed by an
+unary layer.</p>
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.EXP">
+<code class="sig-name descname">EXP</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.EXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.LOG">
+<code class="sig-name descname">LOG</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.LOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>log (base e).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.SQRT">
+<code class="sig-name descname">SQRT</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.SQRT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Square root.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.RECIP">
+<code class="sig-name descname">RECIP</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.RECIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>reciprocal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.ABS">
+<code class="sig-name descname">ABS</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.ABS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.layers.builtin.UnaryOperation.NEG">
+<code class="sig-name descname">NEG</code><a class="headerlink" href="#turret.layers.builtin.UnaryOperation.NEG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.UnaryOperation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">ABS</code><em class="property"> = &lt;UnaryOperation.ABS: 4&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">EXP</code><em class="property"> = &lt;UnaryOperation.EXP: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">LOG</code><em class="property"> = &lt;UnaryOperation.LOG: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">NEG</code><em class="property"> = &lt;UnaryOperation.NEG: 5&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">RECIP</code><em class="property"> = &lt;UnaryOperation.RECIP: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">SQRT</code><em class="property"> = &lt;UnaryOperation.SQRT: 2&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.builtin_activation">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">builtin_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.builtin_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for activation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by activation.</p></li>
+<li><p><strong>type</strong> (<em>turret.ActivationType</em>) – Type of Activation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by activation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.builtin_pooling">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">builtin_pooling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.builtin_pooling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for pooling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by pooling.</p></li>
+<li><p><strong>type</strong> (<em>turret.PoolingType</em>) – Type of pooling.</p></li>
+<li><p><strong>window_size</strong> (<em>tupple</em>) – Window size for pooling.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride for pooling.</p></li>
+<li><p><strong>padding</strong> – Padding for pooling.</p></li>
+<li><p><strong>blend</strong> (<em>float, optional</em>) – Blending factor for the max_average_blend mode:
+max_average_blendPool = (1-blendFactor)*maxPool + blendFactor*avgPool
+blendFactor is a user value in [0,1] with the default value of 0.0
+This value only applies for the MAX_AVERAGE_BLEND mode. Default
+to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by pooling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.concat">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">concat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for concatenation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensors</strong> (<em>object</em>) – Tensors which will be processed by concat layer.</p></li>
+<li><p><strong>axes</strong> (<em>int, optional</em>) – Axes to apply layer. Default to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by concat layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.convolution_2d">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">convolution_2d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.convolution_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for 2D Convolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>filters</strong> (<em>np.ndarray</em>) – Filters for convolution.</p></li>
+<li><p><strong>biases</strong> (<em>np.ndarray, optional</em>) – Biases for convolution. Defaults to None.</p></li>
+<li><p><strong>stride</strong> (<em>int, optional</em>) – Stride for convolution. Defaults to 1.</p></li>
+<li><p><strong>padding</strong> (<em>int, optional</em>) – Padding for convolution. Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.deconvolution_2d">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">deconvolution_2d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.deconvolution_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for 2D Deconvolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>filters</strong> (<em>np.ndarray</em>) – Filters for deconvolution.</p></li>
+<li><p><strong>biases</strong> (<em>np.ndarray, optional</em>) – Biases for deconvolution. Default to
+None.</p></li>
+<li><p><strong>stride</strong> (<em>int, optional</em>) – Stride for deconvolution. Default to 1.</p></li>
+<li><p><strong>padding</strong> (<em>int, optional</em>) – Padding for deconvolution. Default to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.elementwise">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">elementwise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.elementwise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for elementwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input0</strong> (<em>turret.Tensor</em>) – First tensor which will be processed by layer.</p></li>
+<li><p><strong>input1</strong> (<em>turret.Tensor</em>) – Second tensor which will be processed by layer.</p></li>
+<li><p><strong>op</strong> (<em>turret.ElementWiseOperation</em>) – Elementwise operator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.fully_connected">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">fully_connected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.fully_connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for fully connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>weights</strong> (<em>np.ndarray</em>) – Filters for fully connected layer.</p></li>
+<li><p><strong>biases</strong> (<em>np.ndarray, optional</em>) – Biases for fully connected layer.
+Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.gather">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">gather</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.gather" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for gathering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>turret.Tensor</em>) – The tensor to gather values from.</p></li>
+<li><p><strong>indices</strong> (<em>turret.Tensor</em>) – The tensor to get indices from to populate
+the output tensor.</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – The non-batch dimension axis in the data tensor to gather
+on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.local_response_normalization">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">local_response_normalization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.local_response_normalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for local responce normalization(LRN).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by LRN layer.</p></li>
+<li><p><strong>n</strong> (<em>int, optional</em>) – Window size. Default to 5.</p></li>
+<li><p><strong>k</strong> (<em>float, optional</em>) – LRN K value. Default to 2.0.</p></li>
+<li><p><strong>alpha</strong> (<em>float, optional</em>) – LRN alpha value. Default to 1e-4.</p></li>
+<li><p><strong>beta</strong> (<em>float, optional</em>) – LRN beta value. Default to 0.75.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by LRN layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.matrix_multiply">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">matrix_multiply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.matrix_multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for matrix multiply.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input0</strong> (<em>turret.Tensor</em>) – The tensor which will be first processed by
+layer.</p></li>
+<li><p><strong>transpose0</strong> (<em>bool</em>) – True if you transpose input0.</p></li>
+<li><p><strong>input1</strong> (<em>turret.Tensor</em>) – The tensor which will be second processed by
+layer.</p></li>
+<li><p><strong>transpose1</strong> (<em>bool</em>) – True if you transpose input1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.padding">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">padding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for padding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be processed by layer.</p></li>
+<li><p><strong>pre</strong> (<em>float</em>) – The padding that is applied at the start of the tensor.</p></li>
+<li><p><strong>post</strong> (<em>float</em>) – The padding that is applied at the end of the tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.plugin">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">plugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plugin layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensors</strong> (<em>turret.Tensor</em>) – Tensors which will be processed by plugin.</p></li>
+<li><p><strong>instance</strong> (<em>turret.PluginBase</em>) – Plugin layer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by plugin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.ragged_softmax">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ragged_softmax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.ragged_softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for ragged softmax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The ZxS input tensor.</p></li>
+<li><p><strong>bounds</strong> (<em>turret.Tensor</em>) – The Zx1 bounds tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.reduce">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">reduce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for unary operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor to be done reduce operation.</p></li>
+<li><p><strong>op</strong> (<em>turret.ReduceOperation</em>) – Reduce operation.</p></li>
+<li><p><strong>axes</strong> (<em>int</em>) – Axes to apply layer.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool, optional</em>) – True if keep dimensions of tensor. Default
+to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Operated tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.rnn">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">rnn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.rnn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use rnn_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>num_layers</strong> (<em>int</em>) – The number of layers in the RNN.</p></li>
+<li><p><strong>hidden_size</strong> (<em>int</em>) – The size of the internal hidden state for each layer.</p></li>
+<li><p><strong>max_sequence_length</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>op</strong> (<em>turret.RNNOperation</em>) – RNN operator.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>direction</strong> (<em>turret.RNNDirection</em>) – Direction of RNN.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor, optional</em>) – Initial cell state of RNN.
+Default to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.rnn_v2">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">rnn_v2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.rnn_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>num_layers</strong> (<em>int</em>) – The number of layers in the RNN.</p></li>
+<li><p><strong>hidden_size</strong> (<em>int</em>) – The size of the internal hidden state for each layer.</p></li>
+<li><p><strong>max_sequence_length</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>op</strong> (<em>turret.RNNOperation</em>) – RNN operator.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>direction</strong> (<em>turret.RNNDirection</em>) – Direction of RNN.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor, optional</em>) – Initial cell state of RNN.
+Default to None.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor, optional</em>) – The sequence lengths
+specified for the RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.scale">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">scale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for scale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by scale layer.</p></li>
+<li><p><strong>mode</strong> (<em>turret.ScaleMode</em>) – The scaling mode.</p></li>
+<li><p><strong>shift</strong> (<em>np.ndarray, optional</em>) – The shift value. Default to None.</p></li>
+<li><p><strong>scale</strong> (<em>np.ndarray, optional</em>) – The scale value. Default to None.</p></li>
+<li><p><strong>power</strong> (<em>np.ndarray, optional</em>) – The power value. Default to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by scale layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.shuffle_and_reshape">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">shuffle_and_reshape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.shuffle_and_reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer to shuffle and reshape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be processed by layer.</p></li>
+<li><p><strong>order1</strong> (<em>tuple</em>) – The permutation applied by the first transpose
+operation.</p></li>
+<li><p><strong>shape</strong> (<em>turret.Dimensions</em>) – Reshaped dimensions.</p></li>
+<li><p><strong>order2</strong> (<em>tuple</em>) – The permutation applied by the second transpose
+operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.softmax">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">softmax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for softmax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by softmax layer.</p></li>
+<li><p><strong>axes</strong> (<em>int, optional</em>) – Axes to apply layer. Default to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by softmax layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.top_k">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">top_k</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.top_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for TopK reduction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be processed by layer.</p></li>
+<li><p><strong>op</strong> (<em>turret.TopKOperation</em>) – The TopK operation.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – The k value.</p></li>
+<li><p><strong>reduce_axes</strong> (<em>int</em>) – Axes to reduce for the layer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> –     The two tensors. The first is the value, and the second is the indices.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.builtin.unary">
+<code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">unary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.builtin.unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for unary operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor to be done unary operation.</p></li>
+<li><p><strong>op</strong> (<em>turret.UnaryOperation</em>) – Unary operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Operated tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.leaky_relu">
+<span id="turret-layers-leaky-relu"></span><h1>turret.layers.leaky_relu<a class="headerlink" href="#module-turret.layers.leaky_relu" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.leaky_relu.leaky_relu">
+<code class="sig-prename descclassname">turret.layers.leaky_relu.</code><code class="sig-name descname">leaky_relu</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">slope=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.leaky_relu.leaky_relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for leaky ReLU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by leaky ReLU.</p></li>
+<li><p><strong>slope</strong> (<em>np.ndarray</em>) – Slope value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by leaky ReLU.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.lstm">
+<span id="turret-layers-lstm"></span><h1>turret.layers.lstm<a class="headerlink" href="#module-turret.layers.lstm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.layers.lstm.LSTMParameterSet">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.lstm.</code><code class="sig-name descname">LSTMParameterSet</code><span class="sig-paren">(</span><em class="sig-param">W_input=None</em>, <em class="sig-param">U_input=None</em>, <em class="sig-param">W_cell=None</em>, <em class="sig-param">U_cell=None</em>, <em class="sig-param">W_forget=None</em>, <em class="sig-param">U_forget=None</em>, <em class="sig-param">W_output=None</em>, <em class="sig-param">U_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm.LSTMParameterSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The object for parameters(weights, bias) of LSTM layer.</p>
+<dl class="simple">
+<dt>Attribute:</dt><dd><p>W_input(np.ndarray): The initial input parameter for data.
+U_input(np.ndarray): The initial input parameter for hidden.
+W_cell(np.ndarray): The initial cell parameter for data.
+U_cell(np.ndarray): The initial cell parameter for hidden.
+W_forget(np.ndarray): The initial forget parameter for data.
+U_forget(np.ndarray): The initial forget parameter for hidden.
+W_output(np.ndarray): The initial output parameter for data.
+U_output(np.ndarray): The initial output parameter for hidden.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.lstm.blstm">
+<code class="sig-prename descclassname">turret.layers.lstm.</code><code class="sig-name descname">blstm</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">cell_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm.blstm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiLSTM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use blstm_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward Bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of BiLSTM.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor</em>) – Initial cell state of BiLSTM.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.lstm.lstm">
+<code class="sig-prename descclassname">turret.layers.lstm.</code><code class="sig-name descname">lstm</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">cell_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm.lstm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for LSTM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use lstm_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of LSTM.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor</em>) – Initial cell state of LSTM.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.lstm_v2">
+<span id="turret-layers-lstm-v2"></span><h1>turret.layers.lstm_v2<a class="headerlink" href="#module-turret.layers.lstm_v2" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.lstm_v2.blstm_v2">
+<code class="sig-prename descclassname">turret.layers.lstm_v2.</code><code class="sig-name descname">blstm_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">cell_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm_v2.blstm_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiLSTM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward Bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of BiLSTM.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor</em>) – Initial cell state of BiLSTM.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the BiLSTM.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.lstm_v2.lstm_v2">
+<code class="sig-prename descclassname">turret.layers.lstm_v2.</code><code class="sig-name descname">lstm_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">cell_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm_v2.lstm_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for LSTM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of LSTM.</p></li>
+<li><p><strong>cell_state</strong> (<em>turret.Tensor</em>) – Initial cell state of LSTM.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the LSTM.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.max_average_blend_pooling_2d">
+<span id="turret-layers-max-average-blend-pooling-2d"></span><h1>turret.layers.max_average_blend_pooling_2d<a class="headerlink" href="#module-turret.layers.max_average_blend_pooling_2d" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.max_average_blend_pooling_2d.max_average_blend_pooling_2d">
+<code class="sig-prename descclassname">turret.layers.max_average_blend_pooling_2d.</code><code class="sig-name descname">max_average_blend_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em>, <em class="sig-param">blend=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.max_average_blend_pooling_2d.max_average_blend_pooling_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for 2D pooling(max average blend mode).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by pooling.</p></li>
+<li><p><strong>window_size</strong> (<em>tupple</em>) – Window size for pooling.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride for pooling.</p></li>
+<li><p><strong>padding</strong> – Padding for pooling.</p></li>
+<li><p><strong>blend</strong> (<em>float</em>) – Blending factor for the max_average_blend mode:
+max_average_blendPool = (1-blendFactor)*maxPool + blendFactor*avgPool
+blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by pooling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.max_pooling_2d">
+<span id="turret-layers-max-pooling-2d"></span><h1>turret.layers.max_pooling_2d<a class="headerlink" href="#module-turret.layers.max_pooling_2d" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.max_pooling_2d.max_pooling_2d">
+<code class="sig-prename descclassname">turret.layers.max_pooling_2d.</code><code class="sig-name descname">max_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.max_pooling_2d.max_pooling_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for 2D pooling(max mode).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by pooling.</p></li>
+<li><p><strong>window_size</strong> (<em>tupple</em>) – Window size for pooling.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride for pooling.</p></li>
+<li><p><strong>padding</strong> – Padding for pooling.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by pooling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.pad">
+<span id="turret-layers-pad"></span><h1>turret.layers.pad<a class="headerlink" href="#module-turret.layers.pad" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.pad.pad">
+<code class="sig-prename descclassname">turret.layers.pad.</code><code class="sig-name descname">pad</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">pad_width</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.pad.pad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for padding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be processed by layer.</p></li>
+<li><p><strong>pad_width</strong> (<em>float</em>) – The padding that is applied at the tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.relu">
+<span id="turret-layers-relu"></span><h1>turret.layers.relu<a class="headerlink" href="#module-turret.layers.relu" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.relu.relu">
+<code class="sig-prename descclassname">turret.layers.relu.</code><code class="sig-name descname">relu</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.relu.relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for ReLU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by ReLU.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by ReLU.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.repeat">
+<span id="turret-layers-repeat"></span><h1>turret.layers.repeat<a class="headerlink" href="#module-turret.layers.repeat" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.repeat.repeat">
+<code class="sig-prename descclassname">turret.layers.repeat.</code><code class="sig-name descname">repeat</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">repeats</em>, <em class="sig-param">axis=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.repeat.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plugin layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensors which will be processed.</p></li>
+<li><p><strong>repeats</strong> (<em>int</em>) – The number of repeat.</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – Axis to repeat.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Processed tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.reshape">
+<span id="turret-layers-reshape"></span><h1>turret.layers.reshape<a class="headerlink" href="#module-turret.layers.reshape" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.reshape.reshape">
+<code class="sig-prename descclassname">turret.layers.reshape.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.reshape.reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer to reshape only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be reshaped.</p></li>
+<li><p><strong>shape</strong> (<em>turret.Dimensions</em>) – Reshaped dimensions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Reshaped tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.rnn">
+<span id="turret-layers-rnn"></span><h1>turret.layers.rnn<a class="headerlink" href="#module-turret.layers.rnn" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.layers.rnn.GRUParameterSet">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">GRUParameterSet</code><a class="headerlink" href="#turret.layers.rnn.GRUParameterSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The object for parameters(weights, bias) of GRU layer.</p>
+<dl class="simple">
+<dt>Attribute:</dt><dd><p>W_update(np.ndarray): The initial input parameter for data.
+U_update(np.ndarray): The initial input parameter for hidden.
+W_reset(np.ndarray): The initial reset parameter for data.
+U_reset(np.ndarray): The initial reset parameter for hidden.
+W_hidden(np.ndarray): The initial hidden parameter for data.
+U_hidden(np.ndarray): The initial hidden parameter for hidden.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.layers.rnn.RNNParameterSet">
+<em class="property">class </em><code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">RNNParameterSet</code><span class="sig-paren">(</span><em class="sig-param">W_input=None</em>, <em class="sig-param">U_input=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.RNNParameterSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The object for parameters(weights, bias) of RNN layer.</p>
+<dl class="simple">
+<dt>Attribute:</dt><dd><p>W_input(np.ndarray): The initial input parameter for data.
+U_input(np.ndarray): The initial input parameter for hidden.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.bias">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">bias</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for applying bias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>b</strong> (<em>np.ndarray</em>) – The bias.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.brnn_relu">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">brnn_relu</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.brnn_relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiRNN with ReLU.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use brnn_relu_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.brnn_tanh">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">brnn_tanh</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.brnn_tanh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiRNN with tanh.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use brnn_tanh_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.gru">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">gru</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias=None</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">direction=&lt;RNNDirection.UNIDIRECTION: 0&gt;</em>, <em class="sig-param">hidden_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.gru" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for GRU.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not implemented.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>direction</strong> (<em>turret.RNNDirection</em>) – The direction of RNN.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.rnn_relu">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">rnn_relu</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.rnn_relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN with ReLU.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use rnn_relu_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn.rnn_tanh">
+<code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">rnn_tanh</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn.rnn_tanh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN with tanh.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not recommended. Use rnn_tanh_v2.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.rnn_v2">
+<span id="turret-layers-rnn-v2"></span><h1>turret.layers.rnn_v2<a class="headerlink" href="#module-turret.layers.rnn_v2" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.rnn_v2.brnn_relu_v2">
+<code class="sig-prename descclassname">turret.layers.rnn_v2.</code><code class="sig-name descname">brnn_relu_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn_v2.brnn_relu_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiRNN with ReLU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of BiRNN.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the BiRNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn_v2.brnn_tanh_v2">
+<code class="sig-prename descclassname">turret.layers.rnn_v2.</code><code class="sig-name descname">brnn_tanh_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn_v2.brnn_tanh_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for BiRNN with tanh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>fwd_weights</strong> (<em>turret.Weights</em>) – Forward weights.</p></li>
+<li><p><strong>bwd_weights</strong> (<em>turret.Weights</em>) – Backward weights.</p></li>
+<li><p><strong>fwd_bias</strong> (<em>turret.Weights</em>) – Forward bias.</p></li>
+<li><p><strong>bwd_bias</strong> (<em>turret.Weights</em>) – Backward bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of BiRNN.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the BiRNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn_v2.rnn_relu_v2">
+<code class="sig-prename descclassname">turret.layers.rnn_v2.</code><code class="sig-name descname">rnn_relu_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn_v2.rnn_relu_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN with ReLU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.layers.rnn_v2.rnn_tanh_v2">
+<code class="sig-prename descclassname">turret.layers.rnn_v2.</code><code class="sig-name descname">rnn_tanh_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">weights</em>, <em class="sig-param">bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn_v2.rnn_tanh_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for RNN with tanh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by layer.</p></li>
+<li><p><strong>max_seq_len</strong> (<em>int</em>) – The maximum length of the time sequence.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – Weights.</p></li>
+<li><p><strong>bias</strong> (<em>turret.Weights</em>) – Bias.</p></li>
+<li><p><strong>mode</strong> (<em>turret.RNNInputMode</em>) – RNN input mode.</p></li>
+<li><p><strong>hidden_state</strong> (<em>turret.Tensor</em>) – Initial hidden status of RNN.</p></li>
+<li><p><strong>sequence_lengths</strong> (<em>turret.Tensor</em>) – The sequence lengths specified for
+the RNN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.shuffle">
+<span id="turret-layers-shuffle"></span><h1>turret.layers.shuffle<a class="headerlink" href="#module-turret.layers.shuffle" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.shuffle.shuffle">
+<code class="sig-prename descclassname">turret.layers.shuffle.</code><code class="sig-name descname">shuffle</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">order</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.shuffle.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer to shuffle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – The tensor which will be processed by layer.</p></li>
+<li><p><strong>order</strong> (<em>tuple</em>) – The permutation applied by the first transpose
+operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.sigmoid">
+<span id="turret-layers-sigmoid"></span><h1>turret.layers.sigmoid<a class="headerlink" href="#module-turret.layers.sigmoid" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.sigmoid.sigmoid">
+<code class="sig-prename descclassname">turret.layers.sigmoid.</code><code class="sig-name descname">sigmoid</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.sigmoid.sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for sigmoid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by sigmoid.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by sigmoid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.split">
+<span id="turret-layers-split"></span><h1>turret.layers.split<a class="headerlink" href="#module-turret.layers.split" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.split.split">
+<code class="sig-prename descclassname">turret.layers.split.</code><code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">indices_or_sections</em>, <em class="sig-param">axis</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.split.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer to split the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be splited.</p></li>
+<li><p><strong>indices_or_sections</strong> (<em>tuple</em>) – The indices or sections to split.</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – The axis to be split.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – The splited tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.layers.tanh">
+<span id="turret-layers-tanh"></span><h1>turret.layers.tanh<a class="headerlink" href="#module-turret.layers.tanh" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="turret.layers.tanh.tanh">
+<code class="sig-prename descclassname">turret.layers.tanh.</code><code class="sig-name descname">tanh</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.tanh.tanh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer for tanh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> (<em>turret.Tensor</em>) – Tensor which will be processed by tanh.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensor(turret.Tensor)</em> – Tensor processed by tanh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../int8/int8.html" class="btn btn-neutral float-right" title="turret.int8.int8_calibrator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../core/type_check.html" class="btn btn-neutral float-left" title="turret.type_check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Reference &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="turret.buffer" href="core/buffer.html" />
+    <link rel="prev" title="Welcome to Turret’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core">Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/buffer.html">turret.buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/engine.html">turret.engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/foundational.html">turret.foundational</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/graph.html">turret.graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/logger.html">turret.logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/type_check.html">turret.type_check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#layers">Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html">turret.layers.average_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.basic_math">turret.layers.basic_math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.batch_normalization">turret.layers.batch_normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.bias">turret.layers.bias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.builtin">turret.layers.builtin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.leaky_relu">turret.layers.leaky_relu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.lstm">turret.layers.lstm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.lstm_v2">turret.layers.lstm_v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.max_average_blend_pooling_2d">turret.layers.max_average_blend_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.max_pooling_2d">turret.layers.max_pooling_2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.pad">turret.layers.pad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.relu">turret.layers.relu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.repeat">turret.layers.repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.reshape">turret.layers.reshape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.rnn">turret.layers.rnn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.rnn_v2">turret.layers.rnn_v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.shuffle">turret.layers.shuffle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.sigmoid">turret.layers.sigmoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.split">turret.layers.split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers/layers.html#module-turret.layers.tanh">turret.layers.tanh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#int8">INT8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="int8/int8.html">turret.int8.int8_calibrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="int8/int8.html#module-turret.int8.cy_calibrator_proxy">turret.int8.cy_calibrator_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loggers">Loggers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loggers/loggers.html">turret.loggers.console_logger</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#caffe-parser">Caffe Parser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="caffe/caffe.html">turret.caffe.caffe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caffe/caffe.html#module-turret.caffe.cy_plugin_factory_proxy">turret.caffe.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="caffe/caffe.html#module-turret.caffe.plugin_factory">turret.caffe.plugin_factory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plugin">Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html">turret.plugin.auto_register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.cy_plugin_factory_proxy">turret.plugin.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.cy_plugin_proxy">turret.plugin.cy_plugin_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.plugin_base">turret.plugin.plugin_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.plugin_factory">turret.plugin.plugin_factory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.stream">turret.plugin.stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.temporary_stream_context">turret.plugin.temporary_stream_context</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/apis/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>The API reference contains detailed descriptions of the different end-user
+classes, functions, methods, etc. you will need to work with Turret.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This API reference only contains <em>end-user</em> documentation. If you are
+looking for Turret’s internals, you will find more detailed
+comments in the source code.</p>
+</div>
+<div class="section" id="core">
+<h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/buffer.html">turret.buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/engine.html">turret.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/foundational.html">turret.foundational</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/graph.html">turret.graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/logger.html">turret.logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/type_check.html">turret.type_check</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="layers">
+<h2>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html">turret.layers.average_pooling_2d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.basic_math">turret.layers.basic_math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.batch_normalization">turret.layers.batch_normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.bias">turret.layers.bias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.builtin">turret.layers.builtin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.leaky_relu">turret.layers.leaky_relu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.lstm">turret.layers.lstm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.lstm_v2">turret.layers.lstm_v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.max_average_blend_pooling_2d">turret.layers.max_average_blend_pooling_2d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.max_pooling_2d">turret.layers.max_pooling_2d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.pad">turret.layers.pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.relu">turret.layers.relu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.repeat">turret.layers.repeat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.reshape">turret.layers.reshape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.rnn">turret.layers.rnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.rnn_v2">turret.layers.rnn_v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.shuffle">turret.layers.shuffle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.sigmoid">turret.layers.sigmoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.split">turret.layers.split</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layers/layers.html#module-turret.layers.tanh">turret.layers.tanh</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="int8">
+<h2>INT8<a class="headerlink" href="#int8" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="int8/int8.html">turret.int8.int8_calibrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="int8/int8.html#module-turret.int8.cy_calibrator_proxy">turret.int8.cy_calibrator_proxy</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="loggers">
+<h2>Loggers<a class="headerlink" href="#loggers" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loggers/loggers.html">turret.loggers.console_logger</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="caffe-parser">
+<h2>Caffe Parser<a class="headerlink" href="#caffe-parser" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="caffe/caffe.html">turret.caffe.caffe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caffe/caffe.html#module-turret.caffe.cy_plugin_factory_proxy">turret.caffe.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caffe/caffe.html#module-turret.caffe.plugin_factory">turret.caffe.plugin_factory</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="plugin">
+<h2>Plugin<a class="headerlink" href="#plugin" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html">turret.plugin.auto_register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.cy_plugin_factory_proxy">turret.plugin.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.cy_plugin_proxy">turret.plugin.cy_plugin_proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.plugin_base">turret.plugin.plugin_base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.plugin_factory">turret.plugin.plugin_factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.stream">turret.plugin.stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin/plugin.html#module-turret.plugin.temporary_stream_context">turret.plugin.temporary_stream_context</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core/buffer.html" class="btn btn-neutral float-right" title="turret.buffer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Turret’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

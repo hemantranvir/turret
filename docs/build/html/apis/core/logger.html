@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.logger &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.type_check" href="type_check.html" />
+    <link rel="prev" title="turret.graph" href="graph.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">turret.buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engine.html">turret.engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="foundational.html">turret.foundational</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">turret.graph</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_check.html">turret.type_check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.logger</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/core/logger.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.logger">
+<span id="turret-logger"></span><h1>turret.logger<a class="headerlink" href="#module-turret.logger" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.logger.Logger">
+<em class="property">class </em><code class="sig-prename descclassname">turret.logger.</code><code class="sig-name descname">Logger</code><a class="headerlink" href="#turret.logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Application-implemented logging interface for the builder,
+engine and runtime.</p>
+<dl class="attribute">
+<dt id="turret.logger.Logger.log">
+<code class="sig-name descname">log</code><a class="headerlink" href="#turret.logger.Logger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback implemented by the application to handle logging
+messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>severity</strong> (<em>Severity</em>) – The severity of the message.</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – The log message.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.logger.LoggerProxy">
+<em class="property">class </em><code class="sig-prename descclassname">turret.logger.</code><code class="sig-name descname">LoggerProxy</code><a class="headerlink" href="#turret.logger.LoggerProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.logger.Severity">
+<em class="property">class </em><code class="sig-prename descclassname">turret.logger.</code><code class="sig-name descname">Severity</code><a class="headerlink" href="#turret.logger.Severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The severity corresponding to a log message.</p>
+<dl class="attribute">
+<dt id="turret.logger.Severity.INTERNAL_ERROR">
+<code class="sig-name descname">INTERNAL_ERROR</code><a class="headerlink" href="#turret.logger.Severity.INTERNAL_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>An internal error has occurred.
+Execution is unrecoverable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/fixstars/turret/blob/master/turret/logger.pyx" title="(in turret v4.0.1)">turret.Severity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.logger.Severity.ERROR">
+<code class="sig-name descname">ERROR</code><a class="headerlink" href="#turret.logger.Severity.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>An application error has occurred.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/fixstars/turret/blob/master/turret/logger.pyx" title="(in turret v4.0.1)">turret.Severity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.logger.Severity.WARNING">
+<code class="sig-name descname">WARNING</code><a class="headerlink" href="#turret.logger.Severity.WARNING" title="Permalink to this definition">¶</a></dt>
+<dd><p>An application error has been discovered,
+but TensorRT has recovered or fallen back to a default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/fixstars/turret/blob/master/turret/logger.pyx" title="(in turret v4.0.1)">turret.Severity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.logger.Severity.INFO">
+<code class="sig-name descname">INFO</code><a class="headerlink" href="#turret.logger.Severity.INFO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Informational messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/fixstars/turret/blob/master/turret/logger.pyx" title="(in turret v4.0.1)">turret.Severity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">ERROR</code><em class="property"> = &lt;Severity.ERROR: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INFO</code><em class="property"> = &lt;Severity.INFO: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INTERNAL_ERROR</code><em class="property"> = &lt;Severity.INTERNAL_ERROR: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">WARNING</code><em class="property"> = &lt;Severity.WARNING: 2&gt;</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="type_check.html" class="btn btn-neutral float-right" title="turret.type_check" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="graph.html" class="btn btn-neutral float-left" title="turret.graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.graph &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.logger" href="logger.html" />
+    <link rel="prev" title="turret.foundational" href="foundational.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">turret.buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engine.html">turret.engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="foundational.html">turret.foundational</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logger.html">turret.logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_check.html">turret.type_check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.graph</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/core/graph.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.graph">
+<span id="turret-graph"></span><h1>turret.graph<a class="headerlink" href="#module-turret.graph" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.graph.NetworkDefinition">
+<em class="property">class </em><code class="sig-prename descclassname">turret.graph.</code><code class="sig-name descname">NetworkDefinition</code><a class="headerlink" href="#turret.graph.NetworkDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A network definition.</p>
+<dl class="method">
+<dt id="turret.graph.NetworkDefinition.add_constant">
+<code class="sig-name descname">add_constant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.graph.NetworkDefinition.add_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an constant input to the networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weights</strong> (<em>np.ndarray</em>) – The input values.</p></li>
+<li><p><strong>dims</strong> (<em>Dimensions, optional</em>) – The dimensions of this input. Default
+to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>turret.Tensor</em> – The tensor that is added by this operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.graph.NetworkDefinition.add_input">
+<code class="sig-name descname">add_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.graph.NetworkDefinition.add_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an input tensor to the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the input tensor.</p></li>
+<li><p><strong>type</strong> (<em>turret.DataType</em>) – The data type of the input tensor.</p></li>
+<li><p><strong>dims</strong> (<em>turret.Dimensions</em>) – The dimensions of the input tensor.</p></li>
+<li><p><strong>broadcast_across_batch</strong> (<em>bool, optional</em>) – Whether to enable
+broadcast of tensor accross the batch. Default to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>turret.Tensor</em> – The tensor that is added by this operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.graph.NetworkDefinition.add_plugin">
+<code class="sig-name descname">add_plugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.graph.NetworkDefinition.add_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an plugin layer to the networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plugin</strong> (<em>turret.Plugin</em>) – The layer plugin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.graph.NetworkDefinition.add_resource">
+<code class="sig-name descname">add_resource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.graph.NetworkDefinition.add_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an resource(ex. weights, bias, etc.) to the networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>resource</strong> (<em>turret.Tensor</em>) – an resource.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.NetworkDefinition.dtype">
+<code class="sig-name descname">dtype</code><a class="headerlink" href="#turret.graph.NetworkDefinition.dtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.NetworkDefinition.input_bindings">
+<code class="sig-name descname">input_bindings</code><a class="headerlink" href="#turret.graph.NetworkDefinition.input_bindings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get binding informations of input tensors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.graph.NetworkDefinition.mark_output">
+<code class="sig-name descname">mark_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.graph.NetworkDefinition.mark_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark an tensor as an output of the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the output tensor.</p></li>
+<li><p><strong>tensor</strong> (<em>turret.Tensor</em>) – The tensor that will be marked as
+an output.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.NetworkDefinition.weight_type">
+<code class="sig-name descname">weight_type</code><a class="headerlink" href="#turret.graph.NetworkDefinition.weight_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get data type for weights.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.graph.Tensor">
+<em class="property">class </em><code class="sig-prename descclassname">turret.graph.</code><code class="sig-name descname">Tensor</code><a class="headerlink" href="#turret.graph.Tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A tensor in a network definition.</p>
+<dl class="attribute">
+<dt id="turret.graph.Tensor.broadcast_across_batch">
+<code class="sig-name descname">broadcast_across_batch</code><a class="headerlink" href="#turret.graph.Tensor.broadcast_across_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if this tensor is broadcast across the batch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.Tensor.dimensions">
+<code class="sig-name descname">dimensions</code><a class="headerlink" href="#turret.graph.Tensor.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dimensions of the tensor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.Tensor.is_network_input">
+<code class="sig-name descname">is_network_input</code><a class="headerlink" href="#turret.graph.Tensor.is_network_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if this tensor is a network input.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.Tensor.is_network_output">
+<code class="sig-name descname">is_network_output</code><a class="headerlink" href="#turret.graph.Tensor.is_network_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if this tensor is a network output.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.Tensor.network">
+<code class="sig-name descname">network</code><a class="headerlink" href="#turret.graph.Tensor.network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.graph.Tensor.type">
+<code class="sig-name descname">type</code><a class="headerlink" href="#turret.graph.Tensor.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data type of the tensor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logger.html" class="btn btn-neutral float-right" title="turret.logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="foundational.html" class="btn btn-neutral float-left" title="turret.foundational" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.engine &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.foundational" href="foundational.html" />
+    <link rel="prev" title="turret.buffer" href="buffer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">turret.buffer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="foundational.html">turret.foundational</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">turret.graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logger.html">turret.logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_check.html">turret.type_check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/core/engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.engine">
+<span id="turret-engine"></span><h1>turret.engine<a class="headerlink" href="#module-turret.engine" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.engine.Binding">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">Binding</code><a class="headerlink" href="#turret.engine.Binding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Binding information for network inputs and outputs.</p>
+<dl class="attribute">
+<dt id="turret.engine.Binding.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#turret.engine.Binding.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.Binding.index">
+<code class="sig-name descname">index</code><a class="headerlink" href="#turret.engine.Binding.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.Binding.is_input">
+<code class="sig-name descname">is_input</code><a class="headerlink" href="#turret.engine.Binding.is_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the tensor is an input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.Binding.type">
+<code class="sig-name descname">type</code><a class="headerlink" href="#turret.engine.Binding.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data type of the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DataType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.Binding.dimensions">
+<code class="sig-name descname">dimensions</code><a class="headerlink" href="#turret.engine.Binding.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dimensions of the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.Dimensions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">dimensions</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">index</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">is_input</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">name</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">type</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.engine.BindingSet">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">BindingSet</code><a class="headerlink" href="#turret.engine.BindingSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A set of binding informations for network inputs and outputs.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.engine.ExecutionContext">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">ExecutionContext</code><a class="headerlink" href="#turret.engine.ExecutionContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Context for executing inference using an engine.
+Multiple execution contexts may exist for one InferenceEngine instance,
+allowing the same engine to be used for the execution of multiple batches
+simultaneously.</p>
+<dl class="method">
+<dt id="turret.engine.ExecutionContext.create_buffer">
+<code class="sig-name descname">create_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.ExecutionContext.create_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns InferenceBuffer for this context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>turret.InferenceBuffer</em> – InferenceBuffer for this context.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.ExecutionContext.enqueue">
+<code class="sig-name descname">enqueue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.ExecutionContext.enqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronously execute inference on a batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buf</strong> (<em>InferenceBuffer</em>) – InferenceBuffer for this context.</p></li>
+<li><p><strong>stream</strong> (<em>CUDA stream</em>) – A cuda stream on which the inference kernels
+will be enqueued.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.ExecutionContext.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.ExecutionContext.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously execute inference on a batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>InferenceBuffer</em>) – InferenceBuffer for this context.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.engine.InferenceEngine">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">InferenceEngine</code><a class="headerlink" href="#turret.engine.InferenceEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>An engine for executing inference on a built network.</p>
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngine.bindings">
+<code class="sig-name descname">bindings</code><a class="headerlink" href="#turret.engine.InferenceEngine.bindings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngine.max_batch_size">
+<code class="sig-name descname">max_batch_size</code><a class="headerlink" href="#turret.engine.InferenceEngine.max_batch_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum batch size.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngine.nlayers">
+<code class="sig-name descname">nlayers</code><a class="headerlink" href="#turret.engine.InferenceEngine.nlayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of layers in the network.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.InferenceEngine.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceEngine.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the network to a stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stream</strong> (<em>binary stream</em>) – A stream to write serialized engine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngine.workspace_size">
+<code class="sig-name descname">workspace_size</code><a class="headerlink" href="#turret.engine.InferenceEngine.workspace_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of workspace in bytes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.engine.InferenceEngineBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">InferenceEngineBuilder</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A builder for constructing inference engines.</p>
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.average_find_iterations">
+<code class="sig-name descname">average_find_iterations</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.average_find_iterations" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of minimization iterations in minimization.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.InferenceEngineBuilder.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build an inference engine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>network</strong> (<em>turret.NetworkDefinition</em>) – The network definition.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>turret.InferenceEngine</em> – The constructed inference engine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.InferenceEngineBuilder.create_network">
+<code class="sig-name descname">create_network</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.create_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an empty network definition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>turret.DataType, optional</em>) – The data type for inference.
+Default to DataType.FLOAT.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>turret.NetworkDefinition</em> – The empty network definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.debug_sync">
+<code class="sig-name descname">debug_sync</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.debug_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>The debug sync flag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.int8_calibrator">
+<code class="sig-name descname">int8_calibrator</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.int8_calibrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>INT8 calibration interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.max_batch_size">
+<code class="sig-name descname">max_batch_size</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.max_batch_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum batch size.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.max_workspace_size">
+<code class="sig-name descname">max_workspace_size</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.max_workspace_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum workspace size in bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.engine.InferenceEngineBuilder.min_find_iterations">
+<code class="sig-name descname">min_find_iterations</code><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.min_find_iterations" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of minimization iterations in averaging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.InferenceEngineBuilder.platform_has_fast_fp16">
+<code class="sig-name descname">platform_has_fast_fp16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.platform_has_fast_fp16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True when the platform has fast native fp16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.engine.InferenceEngineBuilder.platform_has_fast_int8">
+<code class="sig-name descname">platform_has_fast_int8</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceEngineBuilder.platform_has_fast_int8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True when the platform has fast native int8.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.engine.InferenceRuntime">
+<em class="property">class </em><code class="sig-prename descclassname">turret.engine.</code><code class="sig-name descname">InferenceRuntime</code><a class="headerlink" href="#turret.engine.InferenceRuntime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A runtime to allow a serialized engine to be deserialized.</p>
+<dl class="method">
+<dt id="turret.engine.InferenceRuntime.deserialize_engine">
+<code class="sig-name descname">deserialize_engine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.engine.InferenceRuntime.deserialize_engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize the network using a stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> (<em>binary stream</em>) – A stream to read serialized engine.</p></li>
+<li><p><strong>plugin_factory</strong> (<em>turret.PluginFactory, optional</em>) – The plugin
+factory. Default to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>turret.InferenceEngine</em> – Deserialized InferenceEngine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="foundational.html" class="btn btn-neutral float-right" title="turret.foundational" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buffer.html" class="btn btn-neutral float-left" title="turret.buffer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

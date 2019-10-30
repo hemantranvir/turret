@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.caffe.caffe &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.plugin.auto_register" href="../plugin/plugin.html" />
+    <link rel="prev" title="turret.loggers.console_logger" href="../loggers/loggers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.caffe.caffe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.caffe.cy_plugin_factory_proxy">turret.caffe.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-turret.caffe.plugin_factory">turret.caffe.plugin_factory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.caffe.caffe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/caffe/caffe.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.caffe.caffe">
+<span id="turret-caffe-caffe"></span><h1>turret.caffe.caffe<a class="headerlink" href="#module-turret.caffe.caffe" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.caffe.caffe.CaffeParser">
+<em class="property">class </em><code class="sig-prename descclassname">turret.caffe.caffe.</code><code class="sig-name descname">CaffeParser</code><a class="headerlink" href="#turret.caffe.caffe.CaffeParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class used for parsing Caffe models.
+Allows users to export models trained using Caffe to TRT.</p>
+<dl class="method">
+<dt id="turret.caffe.caffe.CaffeParser.parse">
+<code class="sig-name descname">parse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.caffe.CaffeParser.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a prototxt file and a binaryproto Caffe model to extract
+network configuration and weights associated with the network,
+respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>network</strong> (<em>turret.NetworkDefinition</em>) – The network in which the
+CaffeParser will fill the layers.</p></li>
+<li><p><strong>deploy</strong> (<em>str</em>) – The plain text, prototxt file used to define the
+network configuration.</p></li>
+<li><p><strong>model</strong> (<em>str</em>) – The binaryproto Caffe model that contains the weights
+associated with the network.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensorset(turret.NamedTensorSet)</em> – The object that contains the extracted data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.caffe.caffe.CaffeParser.set_plugin_factory">
+<code class="sig-name descname">set_plugin_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.caffe.CaffeParser.set_plugin_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the plugin factory to parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory</strong> (<em>turret.PluginFactory</em>) – The plugin factory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.caffe.caffe.NamedTensorSet">
+<em class="property">class </em><code class="sig-prename descclassname">turret.caffe.caffe.</code><code class="sig-name descname">NamedTensorSet</code><a class="headerlink" href="#turret.caffe.caffe.NamedTensorSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The object that contains the data extracted from caffe model. This
+object can be used as dictionary, and The data got from this object is
+<code class="docutils literal notranslate"><span class="pre">turret.Tensor</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="turret.caffe.caffe.import_caffemodel">
+<code class="sig-prename descclassname">turret.caffe.caffe.</code><code class="sig-name descname">import_caffemodel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.caffe.import_caffemodel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import caffe model to Turret.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>network</strong> (<em>turret.NetworkDefinition</em>) – The network in which the
+CaffeParser will fill the layers.</p></li>
+<li><p><strong>deploy</strong> (<em>str</em>) – The plain text, prototxt file used to define the network
+configuration.</p></li>
+<li><p><strong>model</strong> (<em>str</em>) – The binaryproto Caffe model that contains the weights
+associated with the network.</p></li>
+<li><p><strong>plugin_factory</strong> (<em>turret.PluginFactory, optional</em>) – The plugin factory.
+Default to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>tensorset(turret.NamedTensorSet)</em> – The object that contains the extracted data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.caffe.cy_plugin_factory_proxy">
+<span id="turret-caffe-cy-plugin-factory-proxy"></span><h1>turret.caffe.cy_plugin_factory_proxy<a class="headerlink" href="#module-turret.caffe.cy_plugin_factory_proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.caffe.cy_plugin_factory_proxy.CyPluginFactoryProxy">
+<em class="property">class </em><code class="sig-prename descclassname">turret.caffe.cy_plugin_factory_proxy.</code><code class="sig-name descname">CyPluginFactoryProxy</code><a class="headerlink" href="#turret.caffe.cy_plugin_factory_proxy.CyPluginFactoryProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The class for internal processing. Users need not to use.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.caffe.cy_plugin_factory_proxy.PluginFactoryProxy">
+<em class="property">class </em><code class="sig-prename descclassname">turret.caffe.cy_plugin_factory_proxy.</code><code class="sig-name descname">PluginFactoryProxy</code><a class="headerlink" href="#turret.caffe.cy_plugin_factory_proxy.PluginFactoryProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The class for internal processing. Users need not to use.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-turret.caffe.plugin_factory">
+<span id="turret-caffe-plugin-factory"></span><h1>turret.caffe.plugin_factory<a class="headerlink" href="#module-turret.caffe.plugin_factory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.caffe.plugin_factory.PluginFactory">
+<em class="property">class </em><code class="sig-prename descclassname">turret.caffe.plugin_factory.</code><code class="sig-name descname">PluginFactory</code><a class="headerlink" href="#turret.caffe.plugin_factory.PluginFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The PluginFactory for caffe model.</p>
+<dl class="method">
+<dt id="turret.caffe.plugin_factory.PluginFactory.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">layer_name</em>, <em class="sig-param">weights</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.plugin_factory.PluginFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layer_name</strong> (<em>str</em>) – The name of layer.</p></li>
+<li><p><strong>weights</strong> (<em>turret.Weights</em>) – The weight parameter for the layer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>plugin(turret.PluginProxy)</em> – The plugin object for the layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.caffe.plugin_factory.PluginFactory.is_plugin">
+<code class="sig-name descname">is_plugin</code><span class="sig-paren">(</span><em class="sig-param">layer_name</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.plugin_factory.PluginFactory.is_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the layer is in the plugin factory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>layer_name</strong> (<em>str</em>) – The name of layer.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>result(bool)</em> – true if the layer name is in the plugin factory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.caffe.plugin_factory.PluginFactory.register_plugin">
+<code class="sig-name descname">register_plugin</code><span class="sig-paren">(</span><em class="sig-param">layer_name</em>, <em class="sig-param">factory</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.caffe.plugin_factory.PluginFactory.register_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register the plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layer_name</strong> (<em>str</em>) – The name of layer.</p></li>
+<li><p><strong>factory</strong> – The object of plugin.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plugin/plugin.html" class="btn btn-neutral float-right" title="turret.plugin.auto_register" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../loggers/loggers.html" class="btn btn-neutral float-left" title="turret.loggers.console_logger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

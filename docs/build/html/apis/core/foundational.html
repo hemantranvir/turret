@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>turret.foundational &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="turret.graph" href="graph.html" />
+    <link rel="prev" title="turret.engine" href="engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">turret.buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engine.html">turret.engine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.foundational</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph.html">turret.graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logger.html">turret.logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_check.html">turret.type_check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>turret.foundational</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/apis/core/foundational.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-turret.foundational">
+<span id="turret-foundational"></span><h1>turret.foundational<a class="headerlink" href="#module-turret.foundational" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="turret.foundational.DataType">
+<em class="property">class </em><code class="sig-prename descclassname">turret.foundational.</code><code class="sig-name descname">DataType</code><a class="headerlink" href="#turret.foundational.DataType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The type of weights and tensors.</p>
+<dl class="attribute">
+<dt id="turret.foundational.DataType.FLOAT">
+<code class="sig-name descname">FLOAT</code><a class="headerlink" href="#turret.foundational.DataType.FLOAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>FP32 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DataType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DataType.HALF">
+<code class="sig-name descname">HALF</code><a class="headerlink" href="#turret.foundational.DataType.HALF" title="Permalink to this definition">¶</a></dt>
+<dd><p>FP16 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DataType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DataType.INT8">
+<code class="sig-name descname">INT8</code><a class="headerlink" href="#turret.foundational.DataType.INT8" title="Permalink to this definition">¶</a></dt>
+<dd><p>INT8 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DataType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DataType.INT32">
+<code class="sig-name descname">INT32</code><a class="headerlink" href="#turret.foundational.DataType.INT32" title="Permalink to this definition">¶</a></dt>
+<dd><p>INT32 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DataType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">FLOAT</code><em class="property"> = &lt;DataType.FLOAT: 0&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">HALF</code><em class="property"> = &lt;DataType.HALF: 1&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INT32</code><em class="property"> = &lt;DataType.INT32: 3&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INT8</code><em class="property"> = &lt;DataType.INT8: 2&gt;</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DataType.nptype">
+<code class="sig-name descname">nptype</code><a class="headerlink" href="#turret.foundational.DataType.nptype" title="Permalink to this definition">¶</a></dt>
+<dd><p>NumPy data-type for this type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DataType.size">
+<code class="sig-name descname">size</code><a class="headerlink" href="#turret.foundational.DataType.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bytes consumed by an element of this type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.foundational.Dimension">
+<em class="property">class </em><code class="sig-prename descclassname">turret.foundational.</code><code class="sig-name descname">Dimension</code><a class="headerlink" href="#turret.foundational.Dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Structure to define a dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – The size of the dimension.</p></li>
+<li><p><strong>type</strong> (<em>turret.DimensionType</em>) – The type of the dimension.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="turret.foundational.Dimension.size">
+<code class="sig-name descname">size</code><a class="headerlink" href="#turret.foundational.Dimension.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.Dimension.type">
+<code class="sig-name descname">type</code><a class="headerlink" href="#turret.foundational.Dimension.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>turret.DimensionType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">size</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">type</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.foundational.DimensionType">
+<em class="property">class </em><code class="sig-prename descclassname">turret.foundational.</code><code class="sig-name descname">DimensionType</code><a class="headerlink" href="#turret.foundational.DimensionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The type of data encoded across this dimension.</p>
+<dl class="attribute">
+<dt id="turret.foundational.DimensionType.CHANNEL">
+<code class="sig-name descname">CHANNEL</code><em class="property"> = &lt;DimensionType.CHANNEL: 1&gt;</em><a class="headerlink" href="#turret.foundational.DimensionType.CHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DimensionType.INDEX">
+<code class="sig-name descname">INDEX</code><em class="property"> = &lt;DimensionType.INDEX: 2&gt;</em><a class="headerlink" href="#turret.foundational.DimensionType.INDEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DimensionType.SEQUENCE">
+<code class="sig-name descname">SEQUENCE</code><em class="property"> = &lt;DimensionType.SEQUENCE: 3&gt;</em><a class="headerlink" href="#turret.foundational.DimensionType.SEQUENCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.DimensionType.SPATIAL">
+<code class="sig-name descname">SPATIAL</code><em class="property"> = &lt;DimensionType.SPATIAL: 0&gt;</em><a class="headerlink" href="#turret.foundational.DimensionType.SPATIAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.foundational.Dimensions">
+<em class="property">class </em><code class="sig-prename descclassname">turret.foundational.</code><code class="sig-name descname">Dimensions</code><a class="headerlink" href="#turret.foundational.Dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Structure to define the dimensions of a tensor.</p>
+<dl class="method">
+<dt id="turret.foundational.Dimensions.CHW">
+<em class="property">static </em><code class="sig-name descname">CHW</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.foundational.Dimensions.CHW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make descriptor for 2D spatial data with channels.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.foundational.Dimensions.HW">
+<em class="property">static </em><code class="sig-name descname">HW</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.foundational.Dimensions.HW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make descriptor for 2D spatial data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="turret.foundational.Dimensions.NCHW">
+<em class="property">static </em><code class="sig-name descname">NCHW</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#turret.foundational.Dimensions.NCHW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make descriptor for 2D spatial data with channels and indices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.Dimensions.shape">
+<code class="sig-name descname">shape</code><a class="headerlink" href="#turret.foundational.Dimensions.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of dimensions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="turret.foundational.Dimensions.size">
+<code class="sig-name descname">size</code><a class="headerlink" href="#turret.foundational.Dimensions.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="turret.foundational.Weights">
+<em class="property">class </em><code class="sig-prename descclassname">turret.foundational.</code><code class="sig-name descname">Weights</code><a class="headerlink" href="#turret.foundational.Weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>An array of weights used as a layer parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>numpy.ndarray</em>) – The weight values.</p></li>
+<li><p><strong>dtype</strong> (<em>data-type</em>) – The type of the weights.
+<cite>values.dtype</cite> will be used as it when <cite>dtype</cite> is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph.html" class="btn btn-neutral float-right" title="turret.graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="engine.html" class="btn btn-neutral float-left" title="turret.engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
