@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sphinx-apidoc -f -o apis ../turret && make html
+sphinx-apidoc -f -o source/apis ../ && make html
