@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Turret Tutorial &mdash; Turret 4.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Samples" href="samples.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Turret
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Turret Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../apis/core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/layers/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/int8/int8.html">INT8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/loggers/loggers.html">Loggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/caffe/caffe.html">Caffe Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/plugin/plugin.html">Plugin</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Turret</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Turret Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guide/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="turret-tutorial">
+<h1>Turret Tutorial<a class="headerlink" href="#turret-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>The general workflow to build a network and run inference is as follows:</p>
+<ol class="arabic simple">
+<li><p>Import necessary modules</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turret</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="kn">as</span> <span class="nn">cuda</span>
+<span class="kn">import</span> <span class="nn">turret.layers</span> <span class="kn">as</span> <span class="nn">L</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Create a builder object of <a class="reference internal" href="../apis/core/engine.html#turret.engine.InferenceEngineBuilder" title="turret.engine.InferenceEngineBuilder"><code class="xref any py py-class docutils literal notranslate"><span class="pre">turret.engine.InferenceEngineBuilder</span></code></a> type.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">turret</span><span class="o">.</span><span class="n">loggers</span><span class="o">.</span><span class="n">ConsoleLogger</span><span class="p">()</span>
+<span class="n">builder</span> <span class="o">=</span> <span class="n">turret</span><span class="o">.</span><span class="n">InferenceEngineBuilder</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create an empty network (of type <a class="reference internal" href="../apis/core/graph.html#turret.graph.NetworkDefinition" title="turret.graph.NetworkDefinition"><code class="xref any py py-class docutils literal notranslate"><span class="pre">turret.graph.NetworkDefinition</span></code></a>) using the builder object created above.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">create_network</span><span class="p">(</span><span class="n">turret</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Add inputs, logic for inference and outputs to the network.</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">emb</span></code> is input word embedings vector</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_sequence_length</span></code> is the maximum length of the input <code class="docutils literal notranslate"><span class="pre">words</span></code></p></li>
+<li><p>In the example below, we are simply gathering the word embedding
+vectors for the corresponding indices supplied by the <code class="docutils literal notranslate"><span class="pre">words</span></code> input</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+<span class="n">max_sequence_length</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span>
+    <span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="n">turret</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT32</span><span class="p">,</span>
+    <span class="n">turret</span><span class="o">.</span><span class="n">Dimensions</span><span class="p">((</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">turret</span><span class="o">.</span><span class="n">DimensionType</span><span class="o">.</span><span class="n">INDEX</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">max_sequence_length</span><span class="p">,</span> <span class="n">turret</span><span class="o">.</span><span class="n">DimensionType</span><span class="o">.</span><span class="n">INDEX</span><span class="p">))))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">network</span><span class="o">.</span><span class="n">mark_output</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Set the maximum batch size etc.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span><span class="o">.</span><span class="n">max_batch_size</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">max_workspace_size</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Build the network to get an <a class="reference internal" href="../apis/core/engine.html#turret.engine.InferenceEngine" title="turret.engine.InferenceEngine"><code class="xref any py py-class docutils literal notranslate"><span class="pre">turret.engine.InferenceEngine</span></code></a> object.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Following build log is displayed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[INFO] Applying generic optimizations to the graph for inference.</span>
+<span class="go">[INFO] Original: 2 layers</span>
+<span class="go">[INFO] After dead-layer removal: 2 layers</span>
+<span class="go">[INFO] After scale fusion: 2 layers</span>
+<span class="go">[INFO] After vertical fusions: 2 layers</span>
+<span class="go">[INFO] After swap: 2 layers</span>
+<span class="go">[INFO] After final dead-layer removal: 2 layers</span>
+<span class="go">[INFO] After tensor merging: 2 layers</span>
+<span class="go">[INFO] After concat removal: 2 layers</span>
+<span class="go">[INFO] Graph construction and optimization completed in 0.000347243 seconds.</span>
+<span class="go">[INFO]</span>
+<span class="go">[INFO] --------------- Timing (Unnamed Layer* 1) [Gather](24)</span>
+<span class="go">[INFO] Tactic 0 is the only option, timing skipped</span>
+<span class="go">[INFO] Formats and tactics selection completed in 1.1994 seconds.</span>
+<span class="go">[INFO] After reformat layers: 2 layers</span>
+<span class="go">[INFO] Block size 1073741824</span>
+<span class="go">[INFO] Total Activation Memory: 1073741824</span>
+<span class="go">[INFO] Detected 1 input and 1 output network tensors.</span>
+<span class="go">[INFO] Data initialization and engine generation completed in 0.0299379 seconds.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Create a <a class="reference internal" href="../apis/core/engine.html#turret.engine.ExecutionContext" title="turret.engine.ExecutionContext"><code class="xref any py py-class docutils literal notranslate"><span class="pre">turret.engine.ExecutionContext</span></code></a> object using the engine object.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">turret</span><span class="o">.</span><span class="n">ExecutionContext</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Create a <a class="reference internal" href="../apis/core/buffer.html#turret.buffer.InferenceBuffer" title="turret.buffer.InferenceBuffer"><code class="xref any py py-class docutils literal notranslate"><span class="pre">turret.buffer.InferenceBuffer</span></code></a> using the context object.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">create_buffer</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Run Inference</p></li>
+</ol>
+<ul class="simple">
+<li><p>Create a cuda stream, populate the <code class="docutils literal notranslate"><span class="pre">words</span></code> input, call enqueue and synchronize,
+get the results</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stream</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">Stream</span><span class="p">()</span>
+<span class="n">src_words</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">buf</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="n">src_words</span><span class="p">)</span>
+<span class="n">context</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+<span class="n">stream</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output is stored in <code class="docutils literal notranslate"><span class="pre">out</span></code> numpy array and contains the word embedding vectors
+for the supplied indices.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="samples.html" class="btn btn-neutral float-right" title="Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fixstars Corp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

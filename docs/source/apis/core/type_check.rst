@@ -1,5 +1,6 @@
+#################
 turret.type_check
-=================
+#################
 
 .. automodule:: turret.type_check
    :members:

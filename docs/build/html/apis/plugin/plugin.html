@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>turret.plugin.auto_register &mdash; Turret 4.0.1 documentation</title>
+  <title>Plugin &mdash; Turret 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="turret.caffe.caffe" href="../caffe/caffe.html" /> 
+    <link rel="prev" title="Caffe Parser" href="../caffe/caffe.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,23 +83,28 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#plugin">Plugin</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.plugin.auto_register</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.cy_plugin_factory_proxy">turret.plugin.cy_plugin_factory_proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.cy_plugin_proxy">turret.plugin.cy_plugin_proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.plugin_base">turret.plugin.plugin_base</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.plugin_factory">turret.plugin.plugin_factory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.stream">turret.plugin.stream</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.plugin.temporary_stream_context">turret.plugin.temporary_stream_context</a></li>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tutorial.html">Turret Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/samples.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tests.html">Tests</a></li>
 </ul>
-</li>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../layers/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../int8/int8.html">INT8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers/loggers.html">Loggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../caffe/caffe.html">Caffe Parser</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.auto_register">turret.plugin.auto_register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.cy_plugin_factory_proxy">turret.plugin.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.cy_plugin_proxy">turret.plugin.cy_plugin_proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.plugin_base">turret.plugin.plugin_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.plugin_factory">turret.plugin.plugin_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.stream">turret.plugin.stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.plugin.temporary_stream_context">turret.plugin.temporary_stream_context</a></li>
 </ul>
 </li>
 </ul>
@@ -147,9 +152,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">API Reference</a> &raquo;</li>
-        
-      <li>turret.plugin.auto_register</li>
+      <li>Plugin</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,8 +171,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-turret.plugin.auto_register">
-<span id="turret-plugin-auto-register"></span><h1>turret.plugin.auto_register<a class="headerlink" href="#module-turret.plugin.auto_register" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="plugin">
+<h1>Plugin<a class="headerlink" href="#plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-turret.plugin.auto_register">
+<span id="turret-plugin-auto-register"></span><h2>turret.plugin.auto_register<a class="headerlink" href="#module-turret.plugin.auto_register" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.plugin.auto_register.auto_register">
 <code class="sig-prename descclassname">turret.plugin.auto_register.</code><code class="sig-name descname">auto_register</code><span class="sig-paren">(</span><em class="sig-param">cls</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.plugin.auto_register.auto_register" title="Permalink to this definition">¶</a></dt>
@@ -178,7 +183,7 @@
 
 </div>
 <div class="section" id="module-turret.plugin.cy_plugin_factory_proxy">
-<span id="turret-plugin-cy-plugin-factory-proxy"></span><h1>turret.plugin.cy_plugin_factory_proxy<a class="headerlink" href="#module-turret.plugin.cy_plugin_factory_proxy" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-cy-plugin-factory-proxy"></span><h2>turret.plugin.cy_plugin_factory_proxy<a class="headerlink" href="#module-turret.plugin.cy_plugin_factory_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.cy_plugin_factory_proxy.CyPluginFactoryProxy">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.cy_plugin_factory_proxy.</code><code class="sig-name descname">CyPluginFactoryProxy</code><a class="headerlink" href="#turret.plugin.cy_plugin_factory_proxy.CyPluginFactoryProxy" title="Permalink to this definition">¶</a></dt>
@@ -193,7 +198,7 @@
 
 </div>
 <div class="section" id="module-turret.plugin.cy_plugin_proxy">
-<span id="turret-plugin-cy-plugin-proxy"></span><h1>turret.plugin.cy_plugin_proxy<a class="headerlink" href="#module-turret.plugin.cy_plugin_proxy" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-cy-plugin-proxy"></span><h2>turret.plugin.cy_plugin_proxy<a class="headerlink" href="#module-turret.plugin.cy_plugin_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.cy_plugin_proxy.CyPluginProxy">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.cy_plugin_proxy.</code><code class="sig-name descname">CyPluginProxy</code><a class="headerlink" href="#turret.plugin.cy_plugin_proxy.CyPluginProxy" title="Permalink to this definition">¶</a></dt>
@@ -240,7 +245,7 @@ and “num_outputs”(int) are required.</p></li>
 
 </div>
 <div class="section" id="module-turret.plugin.plugin_base">
-<span id="turret-plugin-plugin-base"></span><h1>turret.plugin.plugin_base<a class="headerlink" href="#module-turret.plugin.plugin_base" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-plugin-base"></span><h2>turret.plugin.plugin_base<a class="headerlink" href="#module-turret.plugin.plugin_base" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.plugin_base.PluginBase">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.plugin_base.</code><code class="sig-name descname">PluginBase</code><a class="headerlink" href="#turret.plugin.plugin_base.PluginBase" title="Permalink to this definition">¶</a></dt>
@@ -382,7 +387,7 @@ and “num_outputs”(int) are required.</p></li>
 
 </div>
 <div class="section" id="module-turret.plugin.plugin_factory">
-<span id="turret-plugin-plugin-factory"></span><h1>turret.plugin.plugin_factory<a class="headerlink" href="#module-turret.plugin.plugin_factory" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-plugin-factory"></span><h2>turret.plugin.plugin_factory<a class="headerlink" href="#module-turret.plugin.plugin_factory" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.plugin_factory.PluginFactory">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.plugin_factory.</code><code class="sig-name descname">PluginFactory</code><a class="headerlink" href="#turret.plugin.plugin_factory.PluginFactory" title="Permalink to this definition">¶</a></dt>
@@ -417,7 +422,7 @@ and “num_outputs”(int) are required.</p></li>
 
 </div>
 <div class="section" id="module-turret.plugin.stream">
-<span id="turret-plugin-stream"></span><h1>turret.plugin.stream<a class="headerlink" href="#module-turret.plugin.stream" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-stream"></span><h2>turret.plugin.stream<a class="headerlink" href="#module-turret.plugin.stream" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.stream.PluginStream">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.stream.</code><code class="sig-name descname">PluginStream</code><span class="sig-paren">(</span><em class="sig-param">main_stream</em>, <em class="sig-param">stream_registory</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.plugin.stream.PluginStream" title="Permalink to this definition">¶</a></dt>
@@ -444,7 +449,7 @@ and “num_outputs”(int) are required.</p></li>
 
 </div>
 <div class="section" id="module-turret.plugin.temporary_stream_context">
-<span id="turret-plugin-temporary-stream-context"></span><h1>turret.plugin.temporary_stream_context<a class="headerlink" href="#module-turret.plugin.temporary_stream_context" title="Permalink to this headline">¶</a></h1>
+<span id="turret-plugin-temporary-stream-context"></span><h2>turret.plugin.temporary_stream_context<a class="headerlink" href="#module-turret.plugin.temporary_stream_context" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.plugin.temporary_stream_context.TemporaryStreamContext">
 <em class="property">class </em><code class="sig-prename descclassname">turret.plugin.temporary_stream_context.</code><code class="sig-name descname">TemporaryStreamContext</code><a class="headerlink" href="#turret.plugin.temporary_stream_context.TemporaryStreamContext" title="Permalink to this definition">¶</a></dt>
@@ -463,6 +468,7 @@ and “num_outputs”(int) are required.</p></li>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
@@ -473,7 +479,7 @@ and “num_outputs”(int) are required.</p></li>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../caffe/caffe.html" class="btn btn-neutral float-left" title="turret.caffe.caffe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../caffe/caffe.html" class="btn btn-neutral float-left" title="Caffe Parser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

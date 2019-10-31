@@ -1,5 +1,6 @@
+#############
 turret.buffer
-=============
+#############
 
 .. automodule:: turret.buffer
    :members:

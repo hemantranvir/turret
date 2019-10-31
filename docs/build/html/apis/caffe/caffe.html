@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>turret.caffe.caffe &mdash; Turret 4.0.1 documentation</title>
+  <title>Caffe Parser &mdash; Turret 4.0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="turret.plugin.auto_register" href="../plugin/plugin.html" />
-    <link rel="prev" title="turret.loggers.console_logger" href="../loggers/loggers.html" /> 
+    <link rel="next" title="Plugin" href="../plugin/plugin.html" />
+    <link rel="prev" title="Loggers" href="../loggers/loggers.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,21 +84,26 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#layers">Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.caffe.caffe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.caffe.cy_plugin_factory_proxy">turret.caffe.cy_plugin_factory_proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.caffe.plugin_factory">turret.caffe.plugin_factory</a></li>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tutorial.html">Turret Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/samples.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tests.html">Tests</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../layers/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../int8/int8.html">INT8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers/loggers.html">Loggers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Caffe Parser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.caffe.caffe">turret.caffe.caffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.caffe.cy_plugin_factory_proxy">turret.caffe.cy_plugin_factory_proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.caffe.plugin_factory">turret.caffe.plugin_factory</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/plugin.html">Plugin</a></li>
 </ul>
 
             
@@ -144,9 +149,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">API Reference</a> &raquo;</li>
-        
-      <li>turret.caffe.caffe</li>
+      <li>Caffe Parser</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,8 +168,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-turret.caffe.caffe">
-<span id="turret-caffe-caffe"></span><h1>turret.caffe.caffe<a class="headerlink" href="#module-turret.caffe.caffe" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="caffe-parser">
+<h1>Caffe Parser<a class="headerlink" href="#caffe-parser" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-turret.caffe.caffe">
+<span id="turret-caffe-caffe"></span><h2>turret.caffe.caffe<a class="headerlink" href="#module-turret.caffe.caffe" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.caffe.caffe.CaffeParser">
 <em class="property">class </em><code class="sig-prename descclassname">turret.caffe.caffe.</code><code class="sig-name descname">CaffeParser</code><a class="headerlink" href="#turret.caffe.caffe.CaffeParser" title="Permalink to this definition">¶</a></dt>
@@ -243,7 +248,7 @@ Default to None.</p></li>
 
 </div>
 <div class="section" id="module-turret.caffe.cy_plugin_factory_proxy">
-<span id="turret-caffe-cy-plugin-factory-proxy"></span><h1>turret.caffe.cy_plugin_factory_proxy<a class="headerlink" href="#module-turret.caffe.cy_plugin_factory_proxy" title="Permalink to this headline">¶</a></h1>
+<span id="turret-caffe-cy-plugin-factory-proxy"></span><h2>turret.caffe.cy_plugin_factory_proxy<a class="headerlink" href="#module-turret.caffe.cy_plugin_factory_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.caffe.cy_plugin_factory_proxy.CyPluginFactoryProxy">
 <em class="property">class </em><code class="sig-prename descclassname">turret.caffe.cy_plugin_factory_proxy.</code><code class="sig-name descname">CyPluginFactoryProxy</code><a class="headerlink" href="#turret.caffe.cy_plugin_factory_proxy.CyPluginFactoryProxy" title="Permalink to this definition">¶</a></dt>
@@ -260,7 +265,7 @@ Default to None.</p></li>
 
 </div>
 <div class="section" id="module-turret.caffe.plugin_factory">
-<span id="turret-caffe-plugin-factory"></span><h1>turret.caffe.plugin_factory<a class="headerlink" href="#module-turret.caffe.plugin_factory" title="Permalink to this headline">¶</a></h1>
+<span id="turret-caffe-plugin-factory"></span><h2>turret.caffe.plugin_factory<a class="headerlink" href="#module-turret.caffe.plugin_factory" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.caffe.plugin_factory.PluginFactory">
 <em class="property">class </em><code class="sig-prename descclassname">turret.caffe.plugin_factory.</code><code class="sig-name descname">PluginFactory</code><a class="headerlink" href="#turret.caffe.plugin_factory.PluginFactory" title="Permalink to this definition">¶</a></dt>
@@ -314,6 +319,7 @@ Default to None.</p></li>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
@@ -323,10 +329,10 @@ Default to None.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../plugin/plugin.html" class="btn btn-neutral float-right" title="turret.plugin.auto_register" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../plugin/plugin.html" class="btn btn-neutral float-right" title="Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../loggers/loggers.html" class="btn btn-neutral float-left" title="turret.loggers.console_logger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../loggers/loggers.html" class="btn btn-neutral float-left" title="Loggers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

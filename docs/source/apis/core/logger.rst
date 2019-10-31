@@ -1,5 +1,6 @@
+#############
 turret.logger
-==============
+#############
 
 .. automodule:: turret.logger
    :members:

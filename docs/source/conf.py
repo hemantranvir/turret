@@ -48,9 +48,7 @@ extensions = [
 
 intersphinx_mapping = {
     'numpy': ('https://docs.scipy.org/doc/numpy/', None),
-    'python': ('https://docs.python.org/3.6', None),
-    'turret': ('https://github.com/fixstars/turret/', 'turret.inv'),
-    'torch': ('https://pytorch.org/docs/stable/', 'torch.inv')
+    'python': ('https://docs.python.org/3.6', None)
 }
 
 

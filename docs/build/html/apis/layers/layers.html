@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>turret.layers.average_pooling_2d &mdash; Turret 4.0.1 documentation</title>
+  <title>Layers &mdash; Turret 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="turret.int8.int8_calibrator" href="../int8/int8.html" />
+    <link rel="next" title="INT8" href="../int8/int8.html" />
     <link rel="prev" title="turret.type_check" href="../core/type_check.html" /> 
 </head>
 
@@ -84,38 +84,43 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#layers">Layers</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">turret.layers.average_pooling_2d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.basic_math">turret.layers.basic_math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.batch_normalization">turret.layers.batch_normalization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.bias">turret.layers.bias</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.builtin">turret.layers.builtin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.leaky_relu">turret.layers.leaky_relu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.lstm">turret.layers.lstm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.lstm_v2">turret.layers.lstm_v2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.max_average_blend_pooling_2d">turret.layers.max_average_blend_pooling_2d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.max_pooling_2d">turret.layers.max_pooling_2d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.pad">turret.layers.pad</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.relu">turret.layers.relu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.repeat">turret.layers.repeat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.reshape">turret.layers.reshape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.rnn">turret.layers.rnn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.rnn_v2">turret.layers.rnn_v2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.shuffle">turret.layers.shuffle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.sigmoid">turret.layers.sigmoid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.split">turret.layers.split</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-turret.layers.tanh">turret.layers.tanh</a></li>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tutorial.html">Turret Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/samples.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/tests.html">Tests</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.average_pooling_2d">turret.layers.average_pooling_2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.basic_math">turret.layers.basic_math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.batch_normalization">turret.layers.batch_normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.bias">turret.layers.bias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.builtin">turret.layers.builtin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.leaky_relu">turret.layers.leaky_relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.lstm">turret.layers.lstm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.lstm_v2">turret.layers.lstm_v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.max_average_blend_pooling_2d">turret.layers.max_average_blend_pooling_2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.max_pooling_2d">turret.layers.max_pooling_2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.pad">turret.layers.pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.relu">turret.layers.relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.repeat">turret.layers.repeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.reshape">turret.layers.reshape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.rnn">turret.layers.rnn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.rnn_v2">turret.layers.rnn_v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.shuffle">turret.layers.shuffle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.sigmoid">turret.layers.sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.split">turret.layers.split</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-turret.layers.tanh">turret.layers.tanh</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#int8">INT8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#loggers">Loggers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#caffe-parser">Caffe Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#plugin">Plugin</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../int8/int8.html">INT8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loggers/loggers.html">Loggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../caffe/caffe.html">Caffe Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/plugin.html">Plugin</a></li>
 </ul>
 
             
@@ -161,9 +166,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">API Reference</a> &raquo;</li>
-        
-      <li>turret.layers.average_pooling_2d</li>
+      <li>Layers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,8 +185,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-turret.layers.average_pooling_2d">
-<span id="turret-layers-average-pooling-2d"></span><h1>turret.layers.average_pooling_2d<a class="headerlink" href="#module-turret.layers.average_pooling_2d" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="layers">
+<h1>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-turret.layers.average_pooling_2d">
+<span id="turret-layers-average-pooling-2d"></span><h2>turret.layers.average_pooling_2d<a class="headerlink" href="#module-turret.layers.average_pooling_2d" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.average_pooling_2d.average_pooling_2d">
 <code class="sig-prename descclassname">turret.layers.average_pooling_2d.</code><code class="sig-name descname">average_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.average_pooling_2d.average_pooling_2d" title="Permalink to this definition">¶</a></dt>
@@ -205,7 +210,7 @@
 
 </div>
 <div class="section" id="module-turret.layers.basic_math">
-<span id="turret-layers-basic-math"></span><h1>turret.layers.basic_math<a class="headerlink" href="#module-turret.layers.basic_math" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-basic-math"></span><h2>turret.layers.basic_math<a class="headerlink" href="#module-turret.layers.basic_math" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.basic_math.abs">
 <code class="sig-prename descclassname">turret.layers.basic_math.</code><code class="sig-name descname">abs</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.basic_math.abs" title="Permalink to this definition">¶</a></dt>
@@ -399,7 +404,7 @@
 
 </div>
 <div class="section" id="module-turret.layers.batch_normalization">
-<span id="turret-layers-batch-normalization"></span><h1>turret.layers.batch_normalization<a class="headerlink" href="#module-turret.layers.batch_normalization" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-batch-normalization"></span><h2>turret.layers.batch_normalization<a class="headerlink" href="#module-turret.layers.batch_normalization" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.batch_normalization.batch_normalization">
 <code class="sig-prename descclassname">turret.layers.batch_normalization.</code><code class="sig-name descname">batch_normalization</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">mean</em>, <em class="sig-param">variance</em>, <em class="sig-param">gamma=None</em>, <em class="sig-param">beta=None</em>, <em class="sig-param">eps=2e-05</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.batch_normalization.batch_normalization" title="Permalink to this definition">¶</a></dt>
@@ -425,7 +430,7 @@ by zero.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.bias">
-<span id="turret-layers-bias"></span><h1>turret.layers.bias<a class="headerlink" href="#module-turret.layers.bias" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-bias"></span><h2>turret.layers.bias<a class="headerlink" href="#module-turret.layers.bias" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.bias.bias">
 <code class="sig-prename descclassname">turret.layers.bias.</code><code class="sig-name descname">bias</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.bias.bias" title="Permalink to this definition">¶</a></dt>
@@ -445,7 +450,7 @@ by zero.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.builtin">
-<span id="turret-layers-builtin"></span><h1>turret.layers.builtin<a class="headerlink" href="#module-turret.layers.builtin" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-builtin"></span><h2>turret.layers.builtin<a class="headerlink" href="#module-turret.layers.builtin" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.layers.builtin.ActivationType">
 <em class="property">class </em><code class="sig-prename descclassname">turret.layers.builtin.</code><code class="sig-name descname">ActivationType</code><a class="headerlink" href="#turret.layers.builtin.ActivationType" title="Permalink to this definition">¶</a></dt>
@@ -1672,7 +1677,7 @@ operation.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.leaky_relu">
-<span id="turret-layers-leaky-relu"></span><h1>turret.layers.leaky_relu<a class="headerlink" href="#module-turret.layers.leaky_relu" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-leaky-relu"></span><h2>turret.layers.leaky_relu<a class="headerlink" href="#module-turret.layers.leaky_relu" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.leaky_relu.leaky_relu">
 <code class="sig-prename descclassname">turret.layers.leaky_relu.</code><code class="sig-name descname">leaky_relu</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">slope=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.leaky_relu.leaky_relu" title="Permalink to this definition">¶</a></dt>
@@ -1692,7 +1697,7 @@ operation.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.lstm">
-<span id="turret-layers-lstm"></span><h1>turret.layers.lstm<a class="headerlink" href="#module-turret.layers.lstm" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-lstm"></span><h2>turret.layers.lstm<a class="headerlink" href="#module-turret.layers.lstm" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.layers.lstm.LSTMParameterSet">
 <em class="property">class </em><code class="sig-prename descclassname">turret.layers.lstm.</code><code class="sig-name descname">LSTMParameterSet</code><span class="sig-paren">(</span><em class="sig-param">W_input=None</em>, <em class="sig-param">U_input=None</em>, <em class="sig-param">W_cell=None</em>, <em class="sig-param">U_cell=None</em>, <em class="sig-param">W_forget=None</em>, <em class="sig-param">U_forget=None</em>, <em class="sig-param">W_output=None</em>, <em class="sig-param">U_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm.LSTMParameterSet" title="Permalink to this definition">¶</a></dt>
@@ -1767,7 +1772,7 @@ U_output(np.ndarray): The initial output parameter for hidden.</p>
 
 </div>
 <div class="section" id="module-turret.layers.lstm_v2">
-<span id="turret-layers-lstm-v2"></span><h1>turret.layers.lstm_v2<a class="headerlink" href="#module-turret.layers.lstm_v2" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-lstm-v2"></span><h2>turret.layers.lstm_v2<a class="headerlink" href="#module-turret.layers.lstm_v2" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.lstm_v2.blstm_v2">
 <code class="sig-prename descclassname">turret.layers.lstm_v2.</code><code class="sig-name descname">blstm_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">cell_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.lstm_v2.blstm_v2" title="Permalink to this definition">¶</a></dt>
@@ -1820,7 +1825,7 @@ the LSTM.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.max_average_blend_pooling_2d">
-<span id="turret-layers-max-average-blend-pooling-2d"></span><h1>turret.layers.max_average_blend_pooling_2d<a class="headerlink" href="#module-turret.layers.max_average_blend_pooling_2d" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-max-average-blend-pooling-2d"></span><h2>turret.layers.max_average_blend_pooling_2d<a class="headerlink" href="#module-turret.layers.max_average_blend_pooling_2d" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.max_average_blend_pooling_2d.max_average_blend_pooling_2d">
 <code class="sig-prename descclassname">turret.layers.max_average_blend_pooling_2d.</code><code class="sig-name descname">max_average_blend_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em>, <em class="sig-param">blend=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.max_average_blend_pooling_2d.max_average_blend_pooling_2d" title="Permalink to this definition">¶</a></dt>
@@ -1845,7 +1850,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.max_pooling_2d">
-<span id="turret-layers-max-pooling-2d"></span><h1>turret.layers.max_pooling_2d<a class="headerlink" href="#module-turret.layers.max_pooling_2d" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-max-pooling-2d"></span><h2>turret.layers.max_pooling_2d<a class="headerlink" href="#module-turret.layers.max_pooling_2d" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.max_pooling_2d.max_pooling_2d">
 <code class="sig-prename descclassname">turret.layers.max_pooling_2d.</code><code class="sig-name descname">max_pooling_2d</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">window_size</em>, <em class="sig-param">stride=1</em>, <em class="sig-param">padding=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.max_pooling_2d.max_pooling_2d" title="Permalink to this definition">¶</a></dt>
@@ -1867,7 +1872,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.pad">
-<span id="turret-layers-pad"></span><h1>turret.layers.pad<a class="headerlink" href="#module-turret.layers.pad" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-pad"></span><h2>turret.layers.pad<a class="headerlink" href="#module-turret.layers.pad" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.pad.pad">
 <code class="sig-prename descclassname">turret.layers.pad.</code><code class="sig-name descname">pad</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">pad_width</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.pad.pad" title="Permalink to this definition">¶</a></dt>
@@ -1887,7 +1892,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.relu">
-<span id="turret-layers-relu"></span><h1>turret.layers.relu<a class="headerlink" href="#module-turret.layers.relu" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-relu"></span><h2>turret.layers.relu<a class="headerlink" href="#module-turret.layers.relu" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.relu.relu">
 <code class="sig-prename descclassname">turret.layers.relu.</code><code class="sig-name descname">relu</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.relu.relu" title="Permalink to this definition">¶</a></dt>
@@ -1904,7 +1909,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.repeat">
-<span id="turret-layers-repeat"></span><h1>turret.layers.repeat<a class="headerlink" href="#module-turret.layers.repeat" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-repeat"></span><h2>turret.layers.repeat<a class="headerlink" href="#module-turret.layers.repeat" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.repeat.repeat">
 <code class="sig-prename descclassname">turret.layers.repeat.</code><code class="sig-name descname">repeat</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">repeats</em>, <em class="sig-param">axis=0</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.repeat.repeat" title="Permalink to this definition">¶</a></dt>
@@ -1925,7 +1930,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.reshape">
-<span id="turret-layers-reshape"></span><h1>turret.layers.reshape<a class="headerlink" href="#module-turret.layers.reshape" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-reshape"></span><h2>turret.layers.reshape<a class="headerlink" href="#module-turret.layers.reshape" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.reshape.reshape">
 <code class="sig-prename descclassname">turret.layers.reshape.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.reshape.reshape" title="Permalink to this definition">¶</a></dt>
@@ -1945,7 +1950,7 @@ blendFactor is a user value in [0,1] with the default value of 0.0</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.rnn">
-<span id="turret-layers-rnn"></span><h1>turret.layers.rnn<a class="headerlink" href="#module-turret.layers.rnn" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-rnn"></span><h2>turret.layers.rnn<a class="headerlink" href="#module-turret.layers.rnn" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="turret.layers.rnn.GRUParameterSet">
 <em class="property">class </em><code class="sig-prename descclassname">turret.layers.rnn.</code><code class="sig-name descname">GRUParameterSet</code><a class="headerlink" href="#turret.layers.rnn.GRUParameterSet" title="Permalink to this definition">¶</a></dt>
@@ -2123,7 +2128,7 @@ U_input(np.ndarray): The initial input parameter for hidden.</p>
 
 </div>
 <div class="section" id="module-turret.layers.rnn_v2">
-<span id="turret-layers-rnn-v2"></span><h1>turret.layers.rnn_v2<a class="headerlink" href="#module-turret.layers.rnn_v2" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-rnn-v2"></span><h2>turret.layers.rnn_v2<a class="headerlink" href="#module-turret.layers.rnn_v2" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.rnn_v2.brnn_relu_v2">
 <code class="sig-prename descclassname">turret.layers.rnn_v2.</code><code class="sig-name descname">brnn_relu_v2</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">max_seq_len</em>, <em class="sig-param">fwd_weights</em>, <em class="sig-param">bwd_weights</em>, <em class="sig-param">fwd_bias</em>, <em class="sig-param">bwd_bias</em>, <em class="sig-param">mode=&lt;RNNInputMode.LINEAR: 0&gt;</em>, <em class="sig-param">hidden_state=None</em>, <em class="sig-param">sequence_lengths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.rnn_v2.brnn_relu_v2" title="Permalink to this definition">¶</a></dt>
@@ -2222,7 +2227,7 @@ the RNN.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.shuffle">
-<span id="turret-layers-shuffle"></span><h1>turret.layers.shuffle<a class="headerlink" href="#module-turret.layers.shuffle" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-shuffle"></span><h2>turret.layers.shuffle<a class="headerlink" href="#module-turret.layers.shuffle" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.shuffle.shuffle">
 <code class="sig-prename descclassname">turret.layers.shuffle.</code><code class="sig-name descname">shuffle</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">order</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.shuffle.shuffle" title="Permalink to this definition">¶</a></dt>
@@ -2243,7 +2248,7 @@ operation.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.sigmoid">
-<span id="turret-layers-sigmoid"></span><h1>turret.layers.sigmoid<a class="headerlink" href="#module-turret.layers.sigmoid" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-sigmoid"></span><h2>turret.layers.sigmoid<a class="headerlink" href="#module-turret.layers.sigmoid" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.sigmoid.sigmoid">
 <code class="sig-prename descclassname">turret.layers.sigmoid.</code><code class="sig-name descname">sigmoid</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.sigmoid.sigmoid" title="Permalink to this definition">¶</a></dt>
@@ -2260,7 +2265,7 @@ operation.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.split">
-<span id="turret-layers-split"></span><h1>turret.layers.split<a class="headerlink" href="#module-turret.layers.split" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-split"></span><h2>turret.layers.split<a class="headerlink" href="#module-turret.layers.split" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.split.split">
 <code class="sig-prename descclassname">turret.layers.split.</code><code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">indices_or_sections</em>, <em class="sig-param">axis</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.split.split" title="Permalink to this definition">¶</a></dt>
@@ -2281,7 +2286,7 @@ operation.</p></li>
 
 </div>
 <div class="section" id="module-turret.layers.tanh">
-<span id="turret-layers-tanh"></span><h1>turret.layers.tanh<a class="headerlink" href="#module-turret.layers.tanh" title="Permalink to this headline">¶</a></h1>
+<span id="turret-layers-tanh"></span><h2>turret.layers.tanh<a class="headerlink" href="#module-turret.layers.tanh" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="turret.layers.tanh.tanh">
 <code class="sig-prename descclassname">turret.layers.tanh.</code><code class="sig-name descname">tanh</code><span class="sig-paren">(</span><em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#turret.layers.tanh.tanh" title="Permalink to this definition">¶</a></dt>
@@ -2297,6 +2302,7 @@ operation.</p></li>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
@@ -2306,7 +2312,7 @@ operation.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../int8/int8.html" class="btn btn-neutral float-right" title="turret.int8.int8_calibrator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../int8/int8.html" class="btn btn-neutral float-right" title="INT8" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../core/type_check.html" class="btn btn-neutral float-left" title="turret.type_check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
