@@ -10,12 +10,15 @@ Turret has been developed to solve the inconvenience of Python API on TensorRT a
 
 ## How to install
 
+### Install TensorRT
+For installation instructions, please refer to https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html
+
 ### Prerequisites
 
 All dependencies can be installed via:
 
 ```sh
-pip3 -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Turret has been evaluated on the following environment.

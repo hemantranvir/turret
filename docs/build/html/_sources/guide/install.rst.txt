@@ -14,7 +14,7 @@ All dependencies can be installed via:
 
 .. code-block:: console
 
-   $ pip3 -r requirements.txt
+   $ pip3 install -r requirements.txt
 
 
 **********************
